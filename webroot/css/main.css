@@ -1,0 +1,184 @@
+/**
+ * NMT: The Nuclear Medicine Toolkit(tm) (http://www.nuimsa.es)
+ * Copywright (c) San Miguel Software, Sl. (http://www.sanmiguelsoftware.com)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.TXT (https://www.tldrlegal.com/l/mit)
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright   Copywright (c) San Miguel Software (http://www.sanmiguelsoftware.com)
+ * @author      Carlos Cárdenas Negro 
+ * @link        http://www.nuimsa.es
+ * @since       0.1.0
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT License
+ * @version     2.0
+ */
+ 
+/*  Hoja de estilo principal de la app */
+body, h1, h2, h3 { font-family: 'Open Sans', helvetica, sans-serif; font-weight: 100; }
+/* my own styles */
+#cuerpo { position: relative; top: 58px }
+/* footer */
+#footer { position: relative; top: 78px }
+/* Menubar */
+#menubar { top: 24px; height:53px }
+#menubar ul li { line-height: 30px }
+#menubar ul li hr { margin:2px }
+#menubar hr { border-bottom: 1px solid darkgrey }
+/* menubar dropdown */
+#menubar ul li div { margin: 0px; top: 54px }
+#menubar ul li div a { padding: 1px 16px !important; position:relative; transition-duration: 0.5s }
+#menubar li a:hover { color: white }
+#menubar ul li div a:hover::before { content: "-> "; }
+/* Dropright */
+.w3-dropright-hover { padding: 1px 16px; min-width: 170px; cursor: pointer; }
+.w3-dropright-content { position: absolute; left: 170px; display: none; min-width:160px; padding:0 }
+.w3-dropright-content  a { padding: 6px 6px !important }
+.w3-dropright-hover > a { padding: 0px !important }
+.w3-overflow { overflow: auto;}
+/* Userbar */
+#userbar { height: 25px; z-index: 200 }
+#userbar p {position: relative; text-align: right; margin-right: 20px; top: -4px }
+#userbar span { font-weight: bold }
+/* navsmall */
+#navsmall { top: 79px; width: 0%; opacity: .9 }
+#navsmall ul li { line-height: 20px }
+/* banner */
+#banner div { position: relative; width: 80%; margin: auto; top: 0px; opacity: 0.1; z-index: -100;}
+/* Texto inicial en todas las paginas (animado) */
+#inicio { position: relative; top: 250px; opacity: .01; }
+#inicio p { margin: 5px; }
+/* Todas las paginas se inician apenas visibles */
+#consentimientos { opacity: .01 }
+/* Headroom */
+.headroom {will-change: transform; transition: transform 200ms ease-in-out }
+.headroom--pinned { transform: translateY(0%) }
+.headroom--unpinned { transform: translateY(-100%) }
+.headroom--top  {  }
+.headroom--not-top  { opacity: .9 }
+/* Entrevista clínica */
+#entrevista { position: relative; top: -3%; height: 80%; 
+    box-shadow: 4px 4px 16px rgba(0,0,0,.4), -2px 2px 16px rgba(0,0,0,0.4);
+    border-radius: 10px 10px 3px 3px;
+    border-left: 2px solid lightgrey;
+    border-top: 2px solid lightgrey;
+    border-bottom: 2px solid lightgrey;
+    margin: 30px 25px;
+    padding: 25px;
+    z-index: -2;
+}
+#subentrevista { position: relative; top: 6%; height: 88%; overflow-y: auto; }
+/* caso especial para sombra rara */
+.shadow { position:relative; box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset; } 
+.shadow:before, .shadow:after{
+  position: absolute;
+  content: "";
+  box-shadow: 0 10px 25px 20px rgba(0,0,0,.4);
+  top: 40px;
+  left: 10px;
+  bottom: 50px;
+  width: 15%;
+  z-index: -1;
+  transform: rotate(-8deg);
+}
+.shadow:after { transform: rotate(8deg); right: 10px; left: auto; } 
+/* Oculta el fondo cuando se ocupa la pantalla completa (modal 'a modo') */
+.popup { position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 1; background: rgba(0,0,0,.4); overflow-y: auto; }
+.w3-bot { position:absolute; bottom: 2%; left: 5%; width: 90%; border-radius: 6px; }
+.w3-bor { border-radius: 0px 8px 0px 0px }
+.w3-input { padding:4px; border: 1px solid; transition: 0,8s }
+input[type=date] { border:1px solid; }
+.w3-input:focus, input[type=date]:focus, textarea:focus, select:focus { outline: none; border-bottom:3px solid; }
+.w3-lato  { font-family: 'Lato', Helvetica, sans-serif }
+.w3-pointer { cursor: pointer !important; }
+.w3-trescuartos { width: 100% }
+.w3-mitad { width: 100% }
+textarea { width: 100% }
+
+@media screen and (min-width: 600px) {
+    .w3-mitad { width: 50% }
+    .w3-trescuartos { width: 80% }
+    select { width: 60% !important}
+}
+
+@media screen and ( max-height: 670px ) {
+    #entrevista { margin: 20px 20px; height: 90% }
+}
+/* Listado de CASOS...*/
+#quiz_listado { position: relative; height: 90%; margin-top: 5px; overflow-y: scroll; }
+#quiz_listado table { margin:auto; border-collapse: collapse; width: 100%; cursor: pointer; }
+#quiz_listado th, tr, td { padding: 8px; text-align: center !important; }
+#quiz_listado th { text-align: center; }
+#quiz_listado img { border: 1px solid #999;}
+/* Caso del día o de interés */
+.w3-dialog { position: relative; margin: auto; margin-top: 2%; }
+/* Chat */
+#chat-area { position: relative; height: 80%; width: 100%; overflow: auto; box-shadow: inset 2px 2px 3px rgba(0,0,0,.5); }
+#sendie { position: relative; box-shadow: inset 2px 2px 3px rgba(0,0,0,.5); width: 90% }
+#send-message-area i { position:relative; top: -8px; left: 12px }
+#send-message-area i:hover { text-shadow: 1px 1px 2px rgba(0,0,0,.6); }
+
+@keyframes desliza {
+    0% { top: 40% }
+    80% {opacity: .5 }
+    100% { top: -650%; opacity: 0.2 }
+}
+#acercade { position: relative; top: 40%; height: 70%; animation: desliza; animation-delay: 5s; animation-duration: 180s;
+    animation-timing-function: linear; }
+#acercade-txt { position: absolute; top: 15%; width: 90%; height: 90%; left: 5%; }
+#acercade-txt div { height: 70%; overflow: hidden; }
+#acercade-txt p:first-child { font-size: 3em; margin: 2px}
+.acercade { line-height: 1.3 }
+/* Colores propios */
+.w3-rose-quartz { background-color: #F7786B; color: #FFF }
+.w3-beige {  background-color: rgb(195,184,156); color: rgb(47,37,7) }
+.w3-medium-grey { background-color: rgb(57,57,59); color: rgb(183,183,173)}   
+.w3-foundation { background-color: rgb(7,78,104); color: rgb(255,255,255)}
+.w3-foundation-light { background-color: rgb(12,135,179); color: rgb(255,255,255)}
+.w3-foundation-border { border-left: 1px solid rgb(57,113,134); border-right: 1px solid rgb(57,113,134) }
+.w3-foundation-border:first-child { border-left: 0px }
+.w3-foundation-border:last-child { border-right: 0px }
+/* avisos displayMensaje 'a la' Bootstrap */
+.w3-exito {  background-color: rgb(223,240,216); color: rgb(60,118,61) }
+.w3-info  {  background-color: rgb(217,237,247); color: rgb(49,112,143) }
+.w3-atencion {  background-color: rgb(252,248,227); color: rgb(145,109,59) }
+.w3-error {  background-color: rgb(242,222,222); color: rgb(169,68,66) }
+.w3-text-exito { color: rgb(60,118,61) }
+.w3-text-info  { color: rgb(49,112,143) }
+.w3-text-atencion {  color: rgb(145,109,59) }
+.w3-text-error { color: rgb(169,68,66) }
+.w3-dark-red {background-color: rgba(194,33,33,1); color: white}
+.w3-text-dark-red {color: rgba(194,33,33,1)}
+/* paginas nuevas (viene de cakeNMT */
+.blanco { color: rgb(255,255,255) }
+/* slide animation */
+.slideanim {visibility:hidden;}
+.slide { animation-name: slide; animation-duration: 1s; visibility: visible; }
+
+/*
+ Go from 0% to 100% opacity (see-through) and specify 
+ the percentage from when to slide in the element 
+ along the Y-axis
+*/
+@keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translateY(70%);
+    } 
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    } 
+}
+
+/* Varios */
+#pag1 p {color: dimgrey/*rgb(160,177,185)*/}
+#home {margin: 6px}
+.on {display: block}
+.off {display: none}
+.readonly {}
+.positioned { position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto; }
+.mySlides {display:none}
+.entrevista {background-color: rgba(255,100,100,1)};
+.border_inf {border-bottom: 1px solid grey}
+.checklabel {padding-left: 20px}

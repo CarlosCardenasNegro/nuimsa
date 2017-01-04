@@ -1,0 +1,125 @@
+/**
+ * Stylesheet for carrousel
+ *
+ * Asunciones:
+ *
+ * Asumo que ocuparé un espacio <div id="img">
+ * dentro de un w3-dialog de 563px de ancho.
+ * Dicho espacio queda, a su vez dividido en:
+ *
+ *  #div-left (marco izquierdo para el #btn-left '<')
+ *  #div-right (marco derecho para #btn-right '>')
+ *  #div-img (marco para las imágenes de 512px x 512px)
+ *  #div-desc (marco para la descripción de la image) y
+ *  #div-bottom (marco para los puntitos class="marks")
+ *
+ */
+
+#carrousel { 
+    position: relative;
+    /*width: 100%;*/
+    height: 100%; 
+/*    border-top: 1px solid lightgrey;*/
+/*    border-bottom: 1px solid lightgrey;*/
+    /*background: white;*/
+}
+#carrousel span {
+    font-size: 1.5em;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px rgba(0,0,0,1);
+    color: white
+}
+#carrousel span:hover {
+    color: red
+}
+#div-left {
+    position: absolute;
+    top: 0%;
+    width: 5%;
+    height: 100%;
+    left: 0%;
+    /*background-color: lightgrey;*/
+}
+#div-img {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+/*
+    width: 90%;
+    height: 100%;
+    left: 5%;
+    /*background: red;*/
+/*
+    width: 512px;
+    height: 512px;
+    left: 24px;
+*/
+
+    /*background: lightgrey;*/
+    /*border: 1px solid #ccc;*/
+}
+#div-img h2 {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    color: red;
+    font-size: 1.2em;
+}
+.div-img {
+    /* permite que todas las imágenes ocupen el mismo sitio...¡¡
+       una se muestra y las restantes están ocultas */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /*margin: auto;*/
+}
+#div-right {
+    position: absolute;
+    top:0%;
+    width: 5%;
+    height: 100%;
+    right: 0%;
+    /*background-color: lightgrey*/
+}
+#div-desc {
+    position: relative;
+}
+#div-bottom {
+    position: absolute;
+    width: 100%;
+    height: 5%;
+    bottom: 0%;
+    /*background-color: #f6f6f6;*/
+}
+#div-bottom p {
+    position: absolute;
+    top: -55%;
+    cursor: pointer;
+    transition: 0.4s
+}    
+#btn-left {
+    position: relative;
+    top: 50%;
+    left: 20%;
+    font-size: 1.5em
+}
+#div-bottom span {
+    top: 25%
+}
+    
+#btn-right {
+    position: relative;
+    top: 50%;
+    left: 20%;
+    font-size: 1.5em
+}
+.marks {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #999;
+    border-radius: 50%;
+}
+

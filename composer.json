@@ -1,0 +1,8 @@
+{
+    "autoload": {
+        "psr-4": { "nuimsa\\clases\\": "src/clases/"}
+    },
+    "require": {
+        "gregwar/image": "^2.0"
+    }
+}

@@ -1,0 +1,22 @@
+/* css themes */
+/* theme blue  */
+/* THEMES from W3-CSS */
+.w3-theme-l5 {color:#000 !important; background-color:#f3f5fc !important}
+.w3-theme-l4 {color:#000 !important; background-color:#d6def5 !important}
+.w3-theme-l3 {color:#000 !important; background-color:#adbdeb !important}
+.w3-theme-l2 {color:#fff !important; background-color:#859ce0 !important}
+.w3-theme-l1 {color:#fff !important; background-color:#5c7ad6 !important}
+.w3-theme-d1 {color:#fff !important; background-color:#2e50b8 !important}
+.w3-theme-d2 {color:#fff !important; background-color:#2947a3 !important}
+.w3-theme-d3 {color:#fff !important; background-color:#243e8f !important}
+.w3-theme-d4 {color:#fff !important; background-color:#1f367a !important}
+.w3-theme-d5 {color:#fff !important; background-color:#192d66 !important}
+
+.w3-theme-light {color:#000 !important; background-color:#f3f5fc !important}
+.w3-theme-dark {color:#fff !important; background-color:#192d66 !important}
+.w3-theme-action {color:#fff !important; background-color:#192d66 !important}
+
+.w3-theme {color:#fff !important; background-color:#3359cc !important}
+.w3-text-theme {color:#3359cc !important}
+.w3-theme-border {border-color:#3359cc !important}
+.w3-hover-theme:hover {color:#fff !important; background-color:#3359cc !important}
