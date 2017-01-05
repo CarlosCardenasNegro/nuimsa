@@ -135,9 +135,9 @@ $a_class = "w3-text-light-grey w3-hover-none w3-padding-large w3-hover-text-red"
     <li class="w3-dropdown-hover w3-hover-none">
         <a class="<?= $a_class ?>" href="javascript:void(0)"  title="<?= $entrevistaTXT; ?>">ENTREVISTA<i class="fa fa-caret-down"></i></a>
         <div class="w3-dropdown-content w3-theme-d1 w3-card-4" style="opacity: .9">
-            <a class="w3-hover-none" href="javascript:void(0)" onclick="cargaPag('entrevista.php?id=nuevo')">Añadir caso</a>
-            <a class="w3-hover-none" href="javascript:void(0)" onclick="listado()">Editar caso</a>
-            <a class="w3-hover-none" href="javascript:void(0)" onclick="listado()">Borrar caso</a>
+            <a class="w3-hover-none" onclick="cargaPag('entrevista.php?id=nuevo')">Añadir caso</a>
+            <a class="w3-hover-none" onclick="listado()">Editar caso</a>
+            <a class="w3-hover-none" onclick="listado()">Borrar caso</a>
         </div>
     </li>
   
