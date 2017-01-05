@@ -17,6 +17,9 @@
  
 /**
  * Información general acerca de la Medicina Nuclear
+ *
+ * 05/01/2017 Muestro las páginas informativas solo en banner.php
+ *
  */
 
 /**
@@ -27,7 +30,7 @@
     $CONFIG = $_SESSION['CONFIG'];
     require $CONFIG . 'paths.php';
 }
-// images
+// images path
 $radiotracer    = NUIMSA . 'webroot/img/radiotracer.jpeg';
 $gammacamera    = NUIMSA . 'webroot/img/gammacamera.jpeg';
 $alara          = NUIMSA . 'webroot/img/alara.jpeg';
@@ -37,8 +40,15 @@ $cardiac        = NUIMSA . 'webroot/img/cardiac.jpeg';
 $sirt           = NUIMSA . 'webroot/img/sirt.jpeg';
 $petct          = NUIMSA . 'webroot/img/petct.jpeg';
 $amiloid        = NUIMSA . 'webroot/img/amiloid.jpeg';
+
+// get the script name could be 'banner.php or inicio.php'
+$script = explode(DS, $_SERVER['SCRIPT_FILENAME']);
+$script = strtolower($script[count($script) - 1]);
 ?>
 
+<?php if ($script === 'banner.php'): ?>
+    
+<!-- muestro las páginas informativas completas ,... y los menús..? -->
 <!-- Páginas de continuación y relleno -->
 <div id="pag1" class="w3-container w3-light-grey w3-padding-xxlarge">
     <h1 class="w3-lato w3-jumbo w3-center">¿ Que es la Medicina Nuclear ?</h1>
@@ -121,11 +131,13 @@ $amiloid        = NUIMSA . 'webroot/img/amiloid.jpeg';
         </div>        
     </div>
 </div>
+<?php endif ?>
+
 <!-- FOOTER (PAGE SIX) -->
 <footer>
     <div id="pag3" class="w3-container w3-foundation w3-padding-xxlarge">
         <div class="w3-container w3-Open-Sans-light">
-            <h1 class="w3-center w3-lato blanco slideanim" style="padding-bottom: 20px">Quizás necesite más ayuda ?</h1>
+            <h1 class="w3-center w3-lato blanco slideanim" style="padding-bottom: 20px">Otros recursos disponibles</h1>
             <div class="w3-row w3-center slideanim">
                 <div class="w3-col m3 w3-foundation-border w3-padding-large">
                     <a href="#"><span><i class="w3-xxlarge fa fa-battery-3"  aria-hidden="true"></i></span></a><br/>
