@@ -54,13 +54,13 @@ $a_class = "w3-text-light-grey w3-hover-none w3-padding-large w3-hover-text-red"
     </li>
     
     <li class="w3-theme-d4">
-        <a class="<?= $a_class ?>" href="javascript:void(0)" onclick="cargaPag('inicio.php#inicio')" title ="<?= $inicioTXT; ?>">INICIO</a>
+        <a class="<?= $a_class ?>" onclick="cargaPag('inicio.php#inicio')" title ="<?= $inicioTXT; ?>">INICIO</a>
     </li>
     
     <span class="w3-hide-small">
         
     <li class="w3-dropdown-hover w3-hover-none w3-theme-d1">
-        <a class="<?= $a_class ?>" href="javascript:void(0)"  title="<?= $medicinaTXT; ?>">MEDICINA NUCLEAR&nbsp;<i class="fa fa-caret-down"></i></a>
+        <a class="<?= $a_class ?>"  title="<?= $medicinaTXT; ?>">MEDICINA NUCLEAR&nbsp;<i class="fa fa-caret-down"></i></a>
         <div class="w3-dropdown-content w3-theme-d1 w3-card-4" style="opacity: .9">
             <a class="w3-hover-none" href="#pag1">Que es la medicina nuclear.?</a>
             <a class="w3-hover-none" href="#pag2">Dos clases de medicina nuclear</a>
@@ -68,13 +68,13 @@ $a_class = "w3-text-light-grey w3-hover-none w3-padding-large w3-hover-text-red"
     </li>
 
     <li class="w3-dropdown-hover w3-hover-none">
-        <a class="<?= $a_class ?>" href="javascript:void(0)"  title="<?= $garantiaTXT; ?>">GARANTIA DE CALIDAD&nbsp;<i class="fa fa-caret-down"></i></a>
+        <a class="<?= $a_class ?>"  title="<?= $garantiaTXT; ?>">GARANTIA DE CALIDAD&nbsp;<i class="fa fa-caret-down"></i></a>
         <div class="w3-dropdown-content w3-theme-d1 w3-card-4" style="opacity: .9">
             <a class="w3-hover-none" href="http://localhost/IRA/GC/Consentimientos/" target="_blank" title="<?= $consentimientosTXT; ?>">Consentimientos</a>
             <a class="w3-hover-none" href="http://localhost/IRA/GC/Preparación/" target="_blank" title="<?= $proyeccionesTXT; ?>">Preparación del paciente</a>
 
-            <div class="w3-dropright-hover" href="javascript:void(0)">
-                <a class="w3-hover-none" href="javascript:void(0)" style="padding: 0px !important">Procedimientos operativos&nbsp;<i class="fa fa-caret-right"></i></a>
+            <div class="w3-dropright-hover">
+                <a class="w3-hover-none" style="padding: 0px !important">Procedimientos operativos&nbsp;<i class="fa fa-caret-right"></i></a>
                 <div class="w3-dropright-content w3-theme-d1 w3-card-4" style="opacity: .9">
                     <a class="w3-hover-none" href="http://localhost/IRA/GC/PO/PO Diagnósticos/" target="_blank">PO Diagnósticos</a>
                     <a class="w3-hover-none" href="http://localhost/IRA/GC/PO/PO Terapéuticos/" target="_blank">PO Terapéuticos</a>
@@ -83,12 +83,12 @@ $a_class = "w3-text-light-grey w3-hover-none w3-padding-large w3-hover-text-red"
                 </div>
             </div>
             
-            <div class="w3-dropright-hover" href="javascript:void(0)">
-                <a class="w3-hover-none" href="javascript:void(0)" style="padding: 0px !important">Instalación radiactiva&nbsp;<i class="fa fa-caret-right"></i></a>
+            <div class="w3-dropright-hover">
+                <a class="w3-hover-none" style="padding: 0px !important">Instalación radiactiva&nbsp;<i class="fa fa-caret-right"></i></a>
                 <div class="w3-dropright-content w3-theme-d1 w3-card-4" style="opacity: .9">
 
-                    <div class="w3-dropright-hover" href="javascript:void(0)">
-                        <a class="w3-hover-none" href="javascript:void(0)" style="padding: 0px !important">Documentos&nbsp;<i class="fa fa-caret-right"></i></a>
+                    <div class="w3-dropright-hover">
+                        <a class="w3-hover-none" style="padding: 0px !important">Documentos&nbsp;<i class="fa fa-caret-right"></i></a>
                         <div class="w3-dropright-content w3-theme-d1 w3-card-4" style="opacity: .9">
                             <a class="w3-hover-none" href="http://localhost/IRA/Documentos/Certificaciones/" target="_blank">Certificaciones</a>
                             <a class="w3-hover-none" href="http://localhost/IRA/Documentos/Circulares Informativas/">Circulares informativas</a>
@@ -101,8 +101,8 @@ $a_class = "w3-text-light-grey w3-hover-none w3-padding-large w3-hover-text-red"
                         </div>
                     </div>
                                 
-                    <div class="w3-dropright-hover" href="javascript:void(0)">
-                        <a class="w3-hover-none" href="javascript:void(0)" style="padding: 0px !important">Legislación y normativas&nbsp;<i class="fa fa-caret-right"></i></a>
+                    <div class="w3-dropright-hover">
+                        <a class="w3-hover-none" style="padding: 0px !important">Legislación y normativas&nbsp;<i class="fa fa-caret-right"></i></a>
                         <div class="w3-dropright-content w3-theme-d1 w3-card-4" style="opacity: .9">
                             <a class="w3-hover-none" href="http://localhost/IRA/Legislación y normativas/BOE/" target="_blank">BOE</a>
                             <a class="w3-hover-none" href="http://localhost/IRA/Legislación y normativas/CEE/" target="_blank">CEE directivas</a>
@@ -115,8 +115,8 @@ $a_class = "w3-text-light-grey w3-hover-none w3-padding-large w3-hover-text-red"
                     
                     <a class="w3-hover-none" href="#">Licencias</a>
 
-                    <div class="w3-dropright-hover" href="javascript:void(0)">
-                        <a class="w3-hover-none" href="javascript:void(0)" style="padding: 0px !important">Protección radiológica&nbsp;<i class="fa fa-caret-right"></i></a>
+                    <div class="w3-dropright-hover">
+                        <a class="w3-hover-none" style="padding: 0px !important">Protección radiológica&nbsp;<i class="fa fa-caret-right"></i></a>
                         <div class="w3-dropright-content w3-theme-d1 w3-card-4" style="opacity: .9">
                             <a class="w3-hover-none" href="http://localhost/IRA/PR/Documentacion/" target="_blank">Documentacion</a>
                             <a class="w3-hover-none" href="http://localhost/IRA/PR/Dosimetria/" target="_blank">Dosimetria</a>
@@ -133,7 +133,7 @@ $a_class = "w3-text-light-grey w3-hover-none w3-padding-large w3-hover-text-red"
 
 
     <li class="w3-dropdown-hover w3-hover-none">
-        <a class="<?= $a_class ?>" href="javascript:void(0)"  title="<?= $entrevistaTXT; ?>">ENTREVISTA<i class="fa fa-caret-down"></i></a>
+        <a class="<?= $a_class ?>"  title="<?= $entrevistaTXT; ?>">ENTREVISTA<i class="fa fa-caret-down"></i></a>
         <div class="w3-dropdown-content w3-theme-d1 w3-card-4" style="opacity: .9">
             <a class="w3-hover-none" onclick="cargaPag('entrevista.php?id=nuevo')">Añadir caso</a>
             <a class="w3-hover-none" onclick="listado()">Editar caso</a>
@@ -142,51 +142,51 @@ $a_class = "w3-text-light-grey w3-hover-none w3-padding-large w3-hover-text-red"
     </li>
   
     <li class="w3-dropdown-hover w3-hover-none">
-        <a class="<?= $a_class ?>" href="javascript:void(0)"  title="<?= $entrevistaTXT; ?>">ALMACEN DE CASOS<i class="fa fa-caret-down"></i></a>
+        <a class="<?= $a_class ?>" title="<?= $entrevistaTXT; ?>">ALMACEN DE CASOS<i class="fa fa-caret-down"></i></a>
         <div class="w3-dropdown-content w3-theme-d1 w3-card-4" style="opacity: .9">
             <span id="casos"></span>
         </div>
     </li>
       
     <li class="w3-dropdown-hover w3-hover-none">
-        <a class="<?= $a_class ?> " href="javascript:void(0)"  title="<?= $copiaTXT ?>">ESTADO<i class="fa fa-caret-down"></i></a>
+        <a class="<?= $a_class ?> "  title="<?= $copiaTXT ?>">ESTADO<i class="fa fa-caret-down"></i></a>
         <div class="w3-dropdown-content w3-theme-d1 w3-card-4" style="opacity: .9">
-            <a class="w3-hover-none" href="javascript:void(0)" onclick="infoArchivo ('info')">Info del archivo</a>
-            <a class="w3-hover-none" href="javascript:void(0)" onclick="infoArchivo ('salva')">Guardar copia</a>
-            <a class="w3-hover-none" href="javascript:void(0)" onclick="infoArchivo ('restaura')">Restaurar copia</a>     
+            <a class="w3-hover-none" onclick="infoArchivo ('info')">Info del archivo</a>
+            <a class="w3-hover-none" onclick="infoArchivo ('salva')">Guardar copia</a>
+            <a class="w3-hover-none" onclick="infoArchivo ('restaura')">Restaurar copia</a>     
         </div>
     </li>
   
     <li class="w3-dropdown-hover w3-hover-none">
-        <a class="<?= $a_class ?> " href="javascript:void(0)"  title="<?= $copiaTXT ?>">NOTICIAS<i class="fa fa-caret-down"></i></a>
+        <a class="<?= $a_class ?> "  title="<?= $copiaTXT ?>">NOTICIAS<i class="fa fa-caret-down"></i></a>
         <div class="w3-dropdown-content w3-theme-d1 w3-card-4" style="opacity: .9">
-            <a class="w3-hover-none" href="javascript:void(0)" onclick="$.post(<?= "'" . NUIMSA . 'src/code/getrss.php' . "'" ?>, {'q' : 'JNM'}).done ( function (data) { $('#cuerpo').html(data); });">JNM News</a>
-            <a class="w3-hover-none" href="javascript:void(0)" onclick="$.post(<?= "'" . NUIMSA . 'src/code/getrss.php' . "'" ?>, {'q' : 'EANM'}).done ( function (data) { $('#cuerpo').html(data); });">EANM News</a>
-            <a class="w3-hover-none" href="javascript:void(0)" onclick="$.post(<?= "'" . NUIMSA . 'src/code/getrss.php' . "'" ?>, {'q' : 'CNM'}).done ( function (data) { $('#cuerpo').html(data); });">CNM News</a>
-            <a class="w3-hover-none" href="javascript:void(0)" onclick="$.post(<?= "'" . NUIMSA . 'src/code/getrss.php' . "'" ?>, {'q' : 'IJNM'}).done ( function (data) { $('#cuerpo').html(data); });">Indian JNM</a>
+            <a class="w3-hover-none" onclick="$.post(<?= "'" . NUIMSA . 'src/code/getrss.php' . "'" ?>, {'q' : 'JNM'}).done ( function (data) { $('#cuerpo').html(data); });">JNM News</a>
+            <a class="w3-hover-none" onclick="$.post(<?= "'" . NUIMSA . 'src/code/getrss.php' . "'" ?>, {'q' : 'EANM'}).done ( function (data) { $('#cuerpo').html(data); });">EANM News</a>
+            <a class="w3-hover-none" onclick="$.post(<?= "'" . NUIMSA . 'src/code/getrss.php' . "'" ?>, {'q' : 'CNM'}).done ( function (data) { $('#cuerpo').html(data); });">CNM News</a>
+            <a class="w3-hover-none" onclick="$.post(<?= "'" . NUIMSA . 'src/code/getrss.php' . "'" ?>, {'q' : 'IJNM'}).done ( function (data) { $('#cuerpo').html(data); });">Indian JNM</a>
             <hr>
-            <a class="w3-hover-none" href="javascript:void(0)" onclick="$.post(<?= "'" . NUIMSA . 'src/code/getrss.php' . "'" ?>, {'q' : 'YO'}).done ( function (data) { $('#cuerpo').html(data); });">Nuimsa</a>
+            <a class="w3-hover-none" onclick="$.post(<?= "'" . NUIMSA . 'src/code/getrss.php' . "'" ?>, {'q' : 'YO'}).done ( function (data) { $('#cuerpo').html(data); });">Nuimsa</a>
             <hr>
-            <a class="w3-hover-none" href="javascript:void(0)" onclick="$.post(<?= "'" . NUIMSA . 'src/code/getrss.php' . "'" ?>, {'q' : 'GOOGLE'}).done ( function (data) { $('#cuerpo').html(data); });">Google News</a>
-            <a class="w3-hover-none" href="javascript:void(0)" onclick="$.post(<?= "'" . NUIMSA . 'src/code/getrss.php' . "'" ?>, {'q' : 'NCB'}).done ( function (data) { $('#cuerpo').html(data); });">NBC News</a>
+            <a class="w3-hover-none" onclick="$.post(<?= "'" . NUIMSA . 'src/code/getrss.php' . "'" ?>, {'q' : 'GOOGLE'}).done ( function (data) { $('#cuerpo').html(data); });">Google News</a>
+            <a class="w3-hover-none" onclick="$.post(<?= "'" . NUIMSA . 'src/code/getrss.php' . "'" ?>, {'q' : 'NCB'}).done ( function (data) { $('#cuerpo').html(data); });">NBC News</a>
         </div>
     </li>
   
     <li class="w3-dropdown-hover w3-hover-none">
-        <a class="<?= $a_class ?>" href="javascript:void(0)" title="<?= $coloresTXT; ?>">TEMAS<i class="fa fa-caret-down"></i></a>
+        <a class="<?= $a_class ?>" title="<?= $coloresTXT; ?>">TEMAS<i class="fa fa-caret-down"></i></a>
         <div class="w3-dropdown-content w3-theme-d1 w3-card-4" style="opacity: .9">
-            <a class="w3-hover-none" href="javascript:void(0)" onclick="$ ( '#color' ).attr({'href':'webroot/css/colores/red.css'}); setCookie('colores', 'red.css', 365);">Rojizo</a>
-            <a class="w3-hover-none" href="javascript:void(0)" onclick="$ ( '#color' ).attr({'href':'webroot/css/colores/blue.css'}); setCookie('colores', 'blue.css', 365);">Azulado</a>
-            <a class="w3-hover-none" href="javascript:void(0)" onclick="$ ( '#color' ).attr({'href':'webroot/css/colores/emerald.css'}); setCookie('colores', 'emerald.css', 365);">Esmeralda</a>
-            <a class="w3-hover-none" href="javascript:void(0)" onclick="$ ( '#color' ).attr({'href':'webroot/css/colores/green.css'}); setCookie('colores', 'green.css', 365);">Verdoso</a>
-            <a class="w3-hover-none" href="javascript:void(0)" onclick="$ ( '#color' ).attr({'href':'webroot/css/colores/bocacho.css'}); setCookie('colores', 'bocacho.css', 365);">Bocacho</a>          
-            <a class="w3-hover-none" href="javascript:void(0)" onclick="$ ( '#color' ).attr({'href':'webroot/css/colores/turquesa.css'}); setCookie('colores', 'turquesa.css', 365);">Turquesa</a>          
-            <a class="w3-hover-none" href="javascript:void(0)" onclick="$ ( '#color' ).attr({'href':'webroot/css/colores/awesome.css'}); setCookie('colores', 'awesome.css', 365);">Modern green</a>
+            <a class="w3-hover-none" onclick="$ ( '#color' ).attr({'href':'webroot/css/colores/red.css'}); setCookie('colores', 'red.css', 365);">Rojizo</a>
+            <a class="w3-hover-none" onclick="$ ( '#color' ).attr({'href':'webroot/css/colores/blue.css'}); setCookie('colores', 'blue.css', 365);">Azulado</a>
+            <a class="w3-hover-none" onclick="$ ( '#color' ).attr({'href':'webroot/css/colores/emerald.css'}); setCookie('colores', 'emerald.css', 365);">Esmeralda</a>
+            <a class="w3-hover-none" onclick="$ ( '#color' ).attr({'href':'webroot/css/colores/green.css'}); setCookie('colores', 'green.css', 365);">Verdoso</a>
+            <a class="w3-hover-none" onclick="$ ( '#color' ).attr({'href':'webroot/css/colores/bocacho.css'}); setCookie('colores', 'bocacho.css', 365);">Bocacho</a>          
+            <a class="w3-hover-none" onclick="$ ( '#color' ).attr({'href':'webroot/css/colores/turquesa.css'}); setCookie('colores', 'turquesa.css', 365);">Turquesa</a>          
+            <a class="w3-hover-none" onclick="$ ( '#color' ).attr({'href':'webroot/css/colores/awesome.css'}); setCookie('colores', 'awesome.css', 365);">Modern green</a>
        </div>
     </li>  
  
     <li>
-        <a class="<?= $a_class ?>" href="javascript:void(0)" onclick="chatting()" title ="<?= $chatTXT; ?>">CHAT</a>
+        <a class="<?= $a_class ?>" onclick="chatting()" title ="<?= $chatTXT; ?>">CHAT</a>
     </li>
     
     <li class="w3-right">
@@ -199,14 +199,14 @@ $a_class = "w3-text-light-grey w3-hover-none w3-padding-large w3-hover-text-red"
 <!-- Navbar on small screens -->
 <div id="navsmall" class="w3-hide w3-hide-large w3-hide-medium w3-top w3-card-4">
   <ul class="w3-navbar w3-left-align w3-theme-d1 w3-tiny">
-    <!-- <li><a class="w3-padding-large" href="javascript:void(0)" onclick="cargaPag('inicio.html')">INICIO</a></li> -->
-    <li><a class="w3-padding-large" href="javascript:void(0)" onclick="cargaPag('consentimiento.php')">CONSENTIMIENTOS</a></li>
-    <li><a class="w3-padding-large" href="javascript:void(0)" onclick="cargaPag('proyecciones.php')">PROYECCIONES</a></li>
+    <!-- <li><a class="w3-padding-large" onclick="cargaPag('inicio.html')">INICIO</a></li> -->
+    <li><a class="w3-padding-large" onclick="cargaPag('consentimiento.php')">CONSENTIMIENTOS</a></li>
+    <li><a class="w3-padding-large" onclick="cargaPag('proyecciones.php')">PROYECCIONES</a></li>
 
     <li class="w3-accordion w3-padding-large" onclick="myFunction('acc1')">ENTREVISTA&nbsp;<i class="fa fa-caret-down"></i>
         <div id="acc1" class="w3-accordion-content">
-            <a class="w3-padding-large" href="javascript:void(0)" onclick="cargaPag('entrevista.php?id=nuevo')">Paciente nuevo</a>
-            <a class="w3-padding-large" href="javascript:void(0)" onclick="cargaPag('entrevista.php?id=hoy')">Lista de pacientes</a>
+            <a class="w3-padding-large" onclick="cargaPag('entrevista.php?id=nuevo')">Paciente nuevo</a>
+            <a class="w3-padding-large" onclick="cargaPag('entrevista.php?id=hoy')">Lista de pacientes</a>
         </div>
     </li>
 
@@ -214,33 +214,33 @@ $a_class = "w3-text-light-grey w3-hover-none w3-padding-large w3-hover-text-red"
 
     <li class="w3-accordion w3-padding-large" onclick="myFunction('acc2')">PACIENTES&nbsp;<i class="fa fa-caret-down"></i>
         <div id="acc2" class="w3-accordion-content">
-            <a class="w3-padding-large" href="javascript:void(0)" onclick="$.post('copia.php', {'value': 'info'}).done (function(data) { $( '#dialogo' ).html(data); });">Info del archivo</a>
-            <a class="w3-padding-large" href="javascript:void(0)" onclick="$.post('copia.php', {'value': 'salva'}).done (function(data) { $( '#dialogo' ).html(data); });">Guarda copia</a>
-            <a class="w3-padding-large" href="javascript:void(0)" onclick="$.post('copia.php', {'value': 'restaura'}).done (function(data) { $( '#dialogo' ).html(data); });">Restaura copia</a>
+            <a class="w3-padding-large" onclick="$.post('copia.php', {'value': 'info'}).done (function(data) { $( '#dialogo' ).html(data); });">Info del archivo</a>
+            <a class="w3-padding-large" onclick="$.post('copia.php', {'value': 'salva'}).done (function(data) { $( '#dialogo' ).html(data); });">Guarda copia</a>
+            <a class="w3-padding-large" onclick="$.post('copia.php', {'value': 'restaura'}).done (function(data) { $( '#dialogo' ).html(data); });">Restaura copia</a>
         </div>
     </li>
         
     <li class="w3-accordion w3-padding-large" onclick="myFunction('acc3')">NOTICIAS&nbsp;<i class="fa fa-caret-down"></i>
         <div id="acc3" class="w3-accordion-content">
-            <a class="w3-padding-large" href="javascript:void(0)" onclick="showRSS('JNM')"><i class="fa fa-rss"></i>&nbsp;JNM</a>
-            <a class="w3-padding-large" href="javascript:void(0)" onclick="showRSS('EANM')"><i class="fa fa-rss"></i>&nbsp;EANM</a>
-            <a class="w3-padding-large" href="javascript:void(0)" onclick="showRSS('CNM')"><i class="fa fa-rss"></i>&nbsp;CNM</a>
-            <a class="w3-padding-large" href="javascript:void(0)" onclick="showRSS('INM')"><i class="fa fa-rss"></i>&nbsp;INM</a>
-            <a class="w3-padding-large" href="javascript:void(0)" onclick="showRSS('NUIMSA')"><i class="fa fa-rss"></i>&nbsp;NUIMSA</a>
-            <a class="w3-padding-large" href="javascript:void(0)" onclick="showRSS('GOOGLE')"><i class="fa fa-rss"></i>&nbsp;GOOGLE</a>
-            <a class="w3-padding-large" href="javascript:void(0)" onclick="showRSS('NCB')"><i class="fa fa-rss"></i>&nbsp;NCB</a>
+            <a class="w3-padding-large" onclick="showRSS('JNM')"><i class="fa fa-rss"></i>&nbsp;JNM</a>
+            <a class="w3-padding-large" onclick="showRSS('EANM')"><i class="fa fa-rss"></i>&nbsp;EANM</a>
+            <a class="w3-padding-large" onclick="showRSS('CNM')"><i class="fa fa-rss"></i>&nbsp;CNM</a>
+            <a class="w3-padding-large" onclick="showRSS('INM')"><i class="fa fa-rss"></i>&nbsp;INM</a>
+            <a class="w3-padding-large" onclick="showRSS('NUIMSA')"><i class="fa fa-rss"></i>&nbsp;NUIMSA</a>
+            <a class="w3-padding-large" onclick="showRSS('GOOGLE')"><i class="fa fa-rss"></i>&nbsp;GOOGLE</a>
+            <a class="w3-padding-large" onclick="showRSS('NCB')"><i class="fa fa-rss"></i>&nbsp;NCB</a>
         </div>
     </li>
     
     <li class="w3-accordion w3-padding-large" onclick="myFunction('acc4')">COLORES&nbsp;<i class="fa fa-caret-down"></i>
         <div id="acc4" class="w3-accordion-content">
-            <a class="w3-padding-large" href="javascript:void(0)" onclick="$ ( '#color' ).attr({'href':'css/colores/red.css'});">Rojizo</a>
-            <a class="w3-padding-large" href="javascript:void(0)" onclick="$ ( '#color' ).attr({'href':'css/colores/blue.css'});">Azulado</a>    
-            <a class="w3-padding-large" href="javascript:void(0)" onclick="$ ( '#color' ).attr({'href':'css/colores/emerald.css'});">Esmeralda</a>
-            <a class="w3-padding-large" href="javascript:void(0)" onclick="$ ( '#color' ).attr({'href':'css/colores/green.css'});">Verdoso</a>
-            <a class="w3-padding-large" href="javascript:void(0)" onclick="$ ( '#color' ).attr({'href':'css/colores/bocacho.css'});">Bocacho</a>
-            <a class="w3-padding-large" href="javascript:void(0)" onclick="$ ( '#color' ).attr({'href':'css/colores/turquesa.css'});">Turquesa</a>
-            <a class="w3-padding-large" href="javascript:void(0)" onclick="$ ( '#color' ).attr({'href':'css/colores/awesome.css'});">Modern green</a>
+            <a class="w3-padding-large" onclick="$ ( '#color' ).attr({'href':'css/colores/red.css'});">Rojizo</a>
+            <a class="w3-padding-large" onclick="$ ( '#color' ).attr({'href':'css/colores/blue.css'});">Azulado</a>    
+            <a class="w3-padding-large" onclick="$ ( '#color' ).attr({'href':'css/colores/emerald.css'});">Esmeralda</a>
+            <a class="w3-padding-large" onclick="$ ( '#color' ).attr({'href':'css/colores/green.css'});">Verdoso</a>
+            <a class="w3-padding-large" onclick="$ ( '#color' ).attr({'href':'css/colores/bocacho.css'});">Bocacho</a>
+            <a class="w3-padding-large" onclick="$ ( '#color' ).attr({'href':'css/colores/turquesa.css'});">Turquesa</a>
+            <a class="w3-padding-large" onclick="$ ( '#color' ).attr({'href':'css/colores/awesome.css'});">Modern green</a>
         </div>
     </li>
 </ul>
@@ -257,7 +257,7 @@ $(function () {
 
         // primero la imagen del día
         click = "$.post('" + $quiz + "',{'modo':'dia'}).done( function (data) { $( '#contenido' ).html(data); $('#learning, #carrousel' ).fadeTo('slow', 1); $imgActual = 1; })";
-        salida += '<a ' + 'id="0" class="w3-hover-none" href="javascript:void(0)" onclick="' + click + '"' + ' >';
+        salida += '<a ' + 'id="0" class="w3-hover-none" onclick="' + click + '"' + ' >';
         salida += 'Imagen del día</a>';
         salida += '<hr/>';
         
@@ -265,7 +265,7 @@ $(function () {
         var con = 1;
         for (var i = 0; i < obj.length; i++) {
             click = "listaCasos(this.id,'" + obj[i]['description'] + "')";
-            salida += '<a ' + 'id="' + con.toString() + '" class="w3-hover-none" href="javascript:void(0)" onclick="' + click + '"' + ' >';
+            salida += '<a ' + 'id="' + con.toString() + '" class="w3-hover-none" onclick="' + click + '"' + ' >';
             salida += obj[i]['description'] + '</a>';
             con += 1;
         }
@@ -275,13 +275,13 @@ $(function () {
         // todos los casos
         click = "listaCasos('7', 'Todos los casos')";
             
-        salida += '<a ' + 'id="' + con.toString() + '" class="w3-hover-none" href="javascript:void(0)" onclick="' + click + '"' + ' >';
+        salida += '<a ' + 'id="' + con.toString() + '" class="w3-hover-none" onclick="' + click + '"' + ' >';
         salida += 'Todos los casos</a>';
 
         // caso nuevo        
         salida += '<hr class="w3-theme"/>';
         click = "cargaPag('caso.php?modo=nuevo')";
-        salida += '<a ' + 'id="' + con.toString() + '" class="w3-hover-none" href="javascript:void(0)" onclick="' + click + '"' + ' >';
+        salida += '<a ' + 'id="' + con.toString() + '" class="w3-hover-none" onclick="' + click + '"' + ' >';
         salida += 'Añadir Caso nuevo' +  '</a>';
         
         $( '#casos' ).html(salida);
