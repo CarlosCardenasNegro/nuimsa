@@ -37,7 +37,7 @@ $a_class = "w3-text-light-grey w3-hover-none w3-padding-large w3-hover-text-red"
 <div id="menubar" class="w3-top w3-card-4" >
     <ul class="<?= $ul_class ?>">
         <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
-            <a class="w3-padding-large" href="javascript:void(0);" onclick="myFunction('navsmall')" title="Activa el menu de navegación"><i class="fa fa-bars"></i></a>
+            <a class="w3-padding-large" onclick="myFunction('navsmall')" title="Activa el menu de navegación"><i class="fa fa-bars"></i></a>
         </li>
         
         <li>
@@ -46,7 +46,7 @@ $a_class = "w3-text-light-grey w3-hover-none w3-padding-large w3-hover-text-red"
             
         <span class="w3-hide-small">
             <li class="w3-dropdown-hover w3-hover-none w3-theme-d1">
-                <a class="<?= $a_class ?>" href="javascript:void(0)" title="<?= $medicinaTXT ?>">MEDICINA NUCLEAR&nbsp;<i class="fa fa-caret-down"></i></a>
+                <a class="<?= $a_class ?>" title="<?= $medicinaTXT ?>">MEDICINA NUCLEAR&nbsp;<i class="fa fa-caret-down"></i></a>
                 <div class="w3-dropdown-content w3-theme-d1 w3-card-4" style="opacity: .9">
                     <a class="w3-hover-none" href="#pag1">Que es la medicina nuclear.?</a>
                     <a class="w3-hover-none" href="#pag2">Dos clases de medicina nuclear</a>
@@ -54,11 +54,11 @@ $a_class = "w3-text-light-grey w3-hover-none w3-padding-large w3-hover-text-red"
             </li>
     
             <li class="w3-dropdown-hover w3-hover-none">
-                <a class="<?= $a_class ?>" href="javascript:void(0)"  title="<?= $documentosTXT ?>">INFORMACION&nbsp;<i class="fa fa-caret-down"></i></a>
+                <a class="<?= $a_class ?>"  title="<?= $documentosTXT ?>">INFORMACION&nbsp;<i class="fa fa-caret-down"></i></a>
                 <div class="w3-dropdown-content w3-theme-d1 w3-card-4" style="opacity: .9">
-                    <a class="w3-hover-none" href="javascript:void(0)" onclick="cargaPag('consentimiento.php')" title="<?= $consentimientosTXT ?>">Consentimientos</a>
-                    <a class="w3-hover-none" href="javascript:void(0)" onclick="cargaPag('proyecciones.php')" title="<?= $proyeccionesTXT ?>">Proyecciones</a>
-                    <a class="w3-hover-none" href="javascript:void(0)" onclick="cargaInfo('cisterno.xml')" title="<?= $proyeccionesTXT ?>">Exploraciones</a>                    
+                    <a class="w3-hover-none" onclick="cargaPag('consentimiento.php')" title="<?= $consentimientosTXT ?>">Consentimientos</a>
+                    <a class="w3-hover-none" onclick="cargaPag('proyecciones.php')" title="<?= $proyeccionesTXT ?>">Proyecciones</a>
+                    <a class="w3-hover-none" onclick="cargaInfo('cisterno.xml')" title="<?= $proyeccionesTXT ?>">Exploraciones</a>                    
                 </div>
             </li>
         
@@ -67,7 +67,7 @@ $a_class = "w3-text-light-grey w3-hover-none w3-padding-large w3-hover-text-red"
             </li>
 
             <li class="w3-right">
-                <a class="w3-padding-large w3-hover-red" href="javascript:void(0)"  onclick="accesoProfesionales()" title="<?= $profesionalesTXT ?>">PROFESIONALES</a>
+                <a class="w3-padding-large w3-hover-red"  onclick="accesoProfesionales()" title="<?= $profesionalesTXT ?>">PROFESIONALES</a>
             </li>
         </span>
     </ul>
@@ -76,10 +76,10 @@ $a_class = "w3-text-light-grey w3-hover-none w3-padding-large w3-hover-text-red"
 <!-- Navbar on small screens -->
 <div id="navsmall" class="w3-hide w3-hide-large w3-hide-medium w3-top w3-card-4">
   <ul class="w3-navbar w3-left-align w3-theme-d1 w3-tiny">
-    <!-- <li><a class="w3-padding-large" href="javascript:void(0)" onclick="cargaPag('inicio.html')">INICIO</a></li> -->
-    <li><a class="w3-padding-large" href="javascript:void(0)" onclick="cargaPag('consentimiento.php')">CONSENTIMIENTOS</a></li>
-    <li><a class="w3-padding-large" href="javascript:void(0)" onclick="cargaPag('proyecciones.php')">PROYECCIONES</a></li>
-    <li><a class="w3-padding-large" href="javascript:void(0)" onclick="cargaPag('proyecciones.php')">PROFESIONALES</a></li>
+    <!-- <li><a class="w3-padding-large" onclick="cargaPag('inicio.html')">INICIO</a></li> -->
+    <li><a class="w3-padding-large" onclick="cargaPag('consentimiento.php')">CONSENTIMIENTOS</a></li>
+    <li><a class="w3-padding-large" onclick="cargaPag('proyecciones.php')">PROYECCIONES</a></li>
+    <li><a class="w3-padding-large" onclick="cargaPag('proyecciones.php')">PROFESIONALES</a></li>
 </ul>
 </div>
 <script>
