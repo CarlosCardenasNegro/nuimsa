@@ -47,7 +47,7 @@ const APP = ROOT + APP_DIR + DS;
  */
 $( function() {
     // veo si hay un usuario ya autenticado,...
-    if ($( '#userbar span' ).eq(1).html() === 'usuario invitado') {
+    if ($( '#userbar span' ).eq(1).html() === 'Usuario invitado') {
         // al inicio por defecto la página pública es banner
         pagActual = "#banner";     
         cargaPag('banner.php');

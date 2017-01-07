@@ -41,15 +41,13 @@ $sirt           = NUIMSA . 'webroot/img/sirt.jpeg';
 $petct          = NUIMSA . 'webroot/img/petct.jpeg';
 $amiloid        = NUIMSA . 'webroot/img/amiloid.jpeg';
 
-// get the script name could be 'banner.php or inicio.php'
-$script = explode(DS, $_SERVER['SCRIPT_FILENAME']);
-$script = strtolower($script[count($script) - 1]);
+// get the user
+$user = $_SESSION['username'];
+$auth = $user === 'Usuario invitado' ? false : true;
 ?>
-
-<?php if ($script === 'banner.php'): ?>
-    
 <!-- muestro las páginas informativas completas ,... y los menús..? -->
 <!-- Páginas de continuación y relleno -->
+<?php if (!$auth): ?>            
 <div id="pag1" class="w3-container w3-light-grey w3-padding-xxlarge">
     <h1 class="w3-lato w3-jumbo w3-center">¿ Que es la Medicina Nuclear ?</h1>
     <div class="w3-container w3-theme-l4 w3-leftbar w3-theme-border">

@@ -21,7 +21,7 @@ body, h1, h2, h3 { font-family: 'Open Sans', helvetica, sans-serif; font-weight:
 /* footer */
 #footer { position: relative; top: 78px }
 /* Menubar */
-#menubar { top: 24px; height:53px }
+#menubar { top: 39px; height:53px }
 #menubar ul li { line-height: 30px }
 #menubar ul li hr { margin:2px }
 #menubar hr { border-bottom: 1px solid darkgrey }
@@ -37,9 +37,10 @@ body, h1, h2, h3 { font-family: 'Open Sans', helvetica, sans-serif; font-weight:
 .w3-dropright-hover > a { padding: 0px !important }
 .w3-overflow { overflow: auto;}
 /* Userbar */
-#userbar { height: 25px; z-index: 200 }
+#userbar { height: 40px; z-index: 200 }
 #userbar p {position: relative; text-align: right; margin-right: 20px; top: -4px }
 #userbar span { font-weight: bold }
+#userbar a img { margin: 5px; display: none; cursor: pointer; }
 /* navsmall */
 #navsmall { top: 79px; width: 0%; opacity: .9 }
 #navsmall ul li { line-height: 20px }

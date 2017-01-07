@@ -38,6 +38,11 @@ $_SESSION['IMAGES']     = IMAGES;
 $_SESSION['XML']        = XML;
 
 /**
+ * Actual user (authentication)
+ */
+$_SESSION['username']       = 'Usuario invitado';
+
+/**
  * Run the app
  */
 require WWW_ROOT . 'index.php';

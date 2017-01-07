@@ -14,17 +14,18 @@
  * @license     http://www.opensource.org/licenses/mit-license.php MIT License
  * @version     2.0
  */
+
+/**
+ * Load constants...
+ */
+if (!isset($_SESSION)) { 
+    session_start();
+    $CONFIG = $_SESSION['CONFIG'];
+    require $CONFIG . 'paths.php';
+} 
 ?>
 <div class="w3-top w3-theme" id="userbar" >
-    <a href="javascript:void(0)" onclick="acercaDe()" style="display:none"><img class="w3-left" style="margin-left: 2px" src="<?= $esculapio_ico ?>" width="20px" /></a>
+    <a onclick="acercaDe()"><img class="w3-left" src="<?= $esculapio_ico ?>" width="40px" /></a>
     <span class="w3-tiny w3-red" id="userbar_men" style="margin-left: 10px"></span>
-    <p class="w3-tiny w3-right"><i class="w3-medium w3-text-orange fa fa-user"></i>&nbsp;Usuario actual:
-    <?php
-    if(!isset($_SERVER['PHP_AUTH_USER']) or empty($_SERVER['PHP_AUTH_USER'])) {
-        $userName = "usuario invitado";
-    } else {
-        $userName = \nuimsa\tools\getUserName($_SERVER['PHP_AUTH_USER']);
-    }
-    ?>
-    <span><?= $userName ?></span></p>
+    <p class="w3-medium w3-right"><i class="w3-large w3-theme-text fa fa-user"></i>&nbsp;<span><?= $_SESSION['username'] ?></span></p>
 </div>

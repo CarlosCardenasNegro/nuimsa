@@ -80,11 +80,7 @@ $esculapio  = NUIMSA  . 'webroot/img/atomo_esculapio2.svg';
     <?php require_once APP . 'userbar.php' ?>
     <!-- (1) carga el menu:  -->
     <span id="menuSlot">
-    <?php if ($userName === 'usuario invitado'): ?>
-        <?php require_once APP . 'navbar_simple.php'; ?>
-    <?php else: ?>
         <?php require_once APP . 'navbar.php'; ?>
-    <?php endif; ?>   
     </span><br/>
     <!-- (2) Contenedor de las páginas -->
     <span id="cuerpo"></span>
