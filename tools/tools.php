@@ -117,6 +117,59 @@ function getValores1($tabla, $campo) {
 } 
 
 /**
+ * setValores - Establece (insert) una serie de valores
+ * en una tabla.
+ *
+ * @param string $tabla Nombre de la tabla
+ * @param array $valores Array asociativo $valores['fieldname'] = 'value'
+ * @return true/false en el caso de acierto/error
+ */
+
+ function setValores($tabla, $valores) {
+    
+    /**
+     * El ID será el primer campo
+     * ira NULL y lo paso por defecto
+     */
+    $sql = "INSERT INTO `$tabla` (`id`, ";
+    // fieldnames
+    foreach ($valores as $key => $value) {
+        $sql .= "`$key`, ";        
+    }
+    $sql = substr($sql, 0, strlen($sql) - 2);
+    $sql .= ") VALUES (NULL, ";
+    // values
+    foreach ($valores as $key => $value) {
+        $sql .= "'$value', ";        
+    }
+    $sql = substr($sql, 0, strlen($sql) - 2);
+    $sql .= ");";
+    
+    /**
+     * Set parameters according to Host (local o web server)
+     */
+    if ($_SERVER['HTTP_HOST'] === 'localhost') {
+        $servername = 'localhost';
+    } else {
+        $servername = 'mysql.hostinger.es';
+    }
+    $username = 'u525741712_quiz';
+    $password = 'XpUPQEthoAcKK5Y30b';    
+    
+    try {
+        $conn = new \PDO("mysql:host=$servername;dbname=u525741712_pacientes", $username, $password);
+        // set the PDO error mode to exception
+        $conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        $conn->exec($sql);
+        $conn = null;
+        return true;
+    }
+    catch(\PDOException $e) {
+        return "Connection failed: " . $e->getMessage();
+    }
+ }
+ 
+/**
  * Muestra un table con la lista de pacientes contenido en el 
  * nodeList pasado y, opcionalmente,  devuelve el
  * seleccionado rellamando a la pagina con un id que contendrá

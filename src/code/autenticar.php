@@ -24,9 +24,9 @@
     require $CONFIG . 'paths.php';
 }
  
-use function nuimsa\tools\autenticar;
 use function nuimsa\tools\getUsers;
 use function nuimsa\tools\getUserName;
+use function nuimsa\tools\setValores;
 use function nuimsa\tools\testInput;
 
 require_once ROOT . DS . 'tools/tools.php';
@@ -48,8 +48,14 @@ if(!isset($_SERVER['PHP_AUTH_USER'])) {
 
     if (in_array($user, $users)) {
         if ($pass === $password[$user]) {
-            // Todo correcto hemos entrado
+            // Todo correcto hemos entrado:
+            // 1. recupero el username (nombre completo)
+            // 2. guardo los datos de session
+            // 3. vuelvo a la página
             $userName = getUserName($user);
+            $date = date('Y-m-d H:i:s', time());
+            $resul = setValores("sessions", array ('user_id' => '1', 'created' => $date, 'modified' => $date));
+            $_SESSION['username'] = $userName;       
             echo "ok - $userName";
         } else {
             // envío header... error en password

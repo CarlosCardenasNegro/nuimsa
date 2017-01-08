@@ -25,7 +25,7 @@ if (!isset($_SESSION)) {
 } 
 ?>
 <div class="w3-top w3-theme" id="userbar" >
-    <a onclick="acercaDe()"><img class="w3-left" src="<?= $esculapio_ico ?>" width="40px" /></a>
+    <a onclick="acercaDe()"><img class="w3-left" src="<?= $esculapio_ico ?>" width="34px" /></a>
     <span class="w3-tiny w3-red" id="userbar_men" style="margin-left: 10px"></span>
     <p class="w3-medium w3-right"><i class="w3-large w3-theme-text fa fa-user"></i>&nbsp;<span><?= $_SESSION['username'] ?></span></p>
 </div>

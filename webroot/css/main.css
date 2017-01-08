@@ -40,7 +40,7 @@ body, h1, h2, h3 { font-family: 'Open Sans', helvetica, sans-serif; font-weight:
 #userbar { height: 40px; z-index: 200 }
 #userbar p {position: relative; text-align: right; margin-right: 20px; top: -4px }
 #userbar span { font-weight: bold }
-#userbar a img { margin: 5px; display: none; cursor: pointer; }
+#userbar a img { margin: 2px; display: none; cursor: pointer; }
 /* navsmall */
 #navsmall { top: 79px; width: 0%; opacity: .9 }
 #navsmall ul li { line-height: 20px }

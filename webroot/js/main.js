@@ -35,7 +35,13 @@ var temporizador;
 /* Use the DS to separate the directories in other defines */
 const DS = '/';
 /* The full path to the directory which holds "src", WITHOUT a trailing DS. */
-const ROOT = location.pathname;
+/**
+ * OJO, cuando se ejecuta desde el debugger
+ * location.pathname devuelve "/nuimsa/index.php" y
+ * location.search devuelve "?XDEBUG_SESSION_START=netbeans-xdebug".
+ * Por ello debemos de adelantarnos para evitar errores en el debugging
+ */ 
+const ROOT = (location.search).substr(0, 7) === "?XDEBUG" ? '/nuimsa/' : location.pathname;
 /* The actual directory name for the application directory. Normally named 'src'. */
 const APP_DIR = 'src/code';
 /* Path to the application's directory. */
@@ -94,6 +100,7 @@ function accesoProfesionales() {
     $.post(APP + 'autenticar.php').done ( function (data) {
         if (data.substr(0, 2) === 'ok') {
             $( '#userbar span' ).eq(1).html( data.substr(5, data.length));
+            $( '#userbar a img').css({'display': 'block'});
             cargaPag("navbar.php");    
             cargaPag('inicio.php');
         } else {
@@ -667,19 +674,19 @@ function displayMensaje($id, $tipo, $accion, $mensaje, ...$param) {
     $iconmargin = '';
             
     switch ($tipo) {
-        case "Exito!":
+        case "Exito":
             $icon = "fa fa-check-circle";
             $color = "w3-exito";
             break;
-        case "Info!":
+        case "Info":
             $icon = "fa fa-info-circle";
             $color = "w3-info";
             break;
-        case "Atención!":
+        case "Atención":
             $icon = "fa fa-child";
             $color = "w3-atencion";
             break;
-        case "Error!":
+        case "Error":
             $icon = "fa fa-exclamation-triangle";
             $color = "w3-error";
             break;
