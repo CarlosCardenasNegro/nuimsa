@@ -163,7 +163,7 @@ $auth = $user === 'Usuario invitado' ? false : true;
                 </li>
                 <!-- Menú: Almacén de casos -->      
                 <li class="w3-dropdown-hover w3-hover-none">
-                    <a class="<?= $a_class ?>" title="<?= $entrevistaTXT; ?>">ALMACEN DE CASOS<i class="fa fa-caret-down"></i></a>
+                    <a class="<?= $a_class ?>" title="<?= $casosTXT; ?>">ALMACEN DE CASOS<i class="fa fa-caret-down"></i></a>
                     <div class="w3-dropdown-content w3-theme-d1 w3-card-4" style="opacity: .9">
                         <span id="casos"></span>
                     </div>
