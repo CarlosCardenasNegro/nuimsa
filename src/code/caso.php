@@ -29,6 +29,7 @@
  * En el GET se pasa el modo: 
  * (1) nuevo ... para caso nuevo
  * (2) edicion .. para edición de un caso
+ * (3) borrado .. para borrado de un caso
  */
 use function nuimsa\tools\conviertefecha;
 use nuimsa\clases\Casonuevo;
@@ -140,7 +141,7 @@ input[name=newTag] { position: absolute; top:5%; left:50%; width: 10%; margin:au
                 ?>
                 <div id="botonera" class="w3-container w3-padding-xlarge">
                     <button class="<?= $cls ?>" id="submit">Envia formulario</button>
-                    <button class="<?= $cls1 ?>" id="cancel" onclick="cargaPag('inicio.php')">Cancelar</button>
+                    <button class="<?= $cls1 ?>" id="cancel" onclick="$( '#dialogo' ).html(''); cargaPag('inicio.php')">Cancelar</button>
                 </div>
             </form>
             <!-- Campo especial para los tags nuevos... -->
@@ -203,6 +204,27 @@ $( function() {
             event.stopPropagation();
         }
     });
+    
+    $( 'input[name="imagenes[]"]').on('change', function () {
+
+        var tabla = null;        
+        var files = $( this ).prop('files');
+
+        if ( files.length > 0) {
+            tabla  = "<div id='img_tabla' class='w3-container w3-small' style='width:60%;margin:auto'>";
+            tabla += "<table class='w3-table-all'>";
+            tabla += "<tr><th class='w3-center w3-theme-d3'>Imagenes seleccionadas a enviar</th></tr>";
+            for (var i = 0; i < files.length; i++) {
+                tabla += "<tr><td class='w3-center'>" + files[i].name + "</td></tr>";        
+            }
+            tabla += "</table></div>";
+            $( this ).after(tabla);
+        } else {
+            if (document.getElementById('img_tabla') !== null) {
+                $( '#img_tabla' ).remove();
+            }
+        }
+   });
 
     $( 'form#caso' ).submit (function(event) {        
         var datos = new FormData($(this)[0]);
