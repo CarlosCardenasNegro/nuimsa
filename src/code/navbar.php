@@ -71,7 +71,7 @@ $auth = $user === 'Usuario invitado' ? false : true;
             </li>
         <?php else: ?>
             <li class="w3-theme-d4">
-                <a class="<?= $a_class ?>" onclick="cargaPag('inicio.php#inicio')" title ="<?= $inicioTXT; ?>">INICIO</a>
+                <a class="<?= $a_class ?>" onclick="cargaPag('inicio.php')" title ="<?= $inicioTXT; ?>">INICIO</a>
             </li>
         <?php endif ?>    
         <!-- standar menu -->
