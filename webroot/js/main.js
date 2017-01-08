@@ -74,7 +74,7 @@ function test(datos) {
         $( 'form#caso' ).data("submitted", true); 
         busy();
         $.ajax( {
-            url: 'cargaCaso.php',
+            url: APP + 'cargaCaso.php',
             type: 'POST',
             data: datos,
             cache: false,

@@ -158,9 +158,16 @@ $( function() {
     var width = $( '#tag' ).width().toString() + 'px';
     $( 'input[name=newTag]' ).hide().css({'top':top, 'left':left, 'width':width});
     
+    // añado al select la opción de "Nueva etiqueta"...
+    var ultima = $( '#tag option' ).length
+    var html = '<option value="999">Añadir etiqueta</option>';
+    // añado option
+    var option = $( '#tag option' ).eq(ultima - 1);
+    $( option ).after(html);
+    
     // event managers    
     $( '#tag' ).click( function(event) { 
-        if(event.target.innerHTML === "Nueva etiqueta") {
+        if(event.target.innerHTML === "Añadir etiqueta") {
             $( 'input[name=newTag]' ).fadeTo('slow', 1).focus();    
         };    
     });
@@ -169,15 +176,29 @@ $( function() {
         if( $( 'input[name=newTag]' ).data("submitted") === true) {
             event.preventDefault();
             event.stopPropagation();
+            // lo preparo para una nueva submisión
+            $( 'input[name=newTag]' ).data("submitted") === false;
         } else {
             $( 'input[name=newTag]' ).data("submitted", true); 
+
+            var nuevoValor = null;
             
             var val = $(this).val();
             var ult = $( '#tag option' ).length;
             var opt = $( '#tag option' ).eq(ult-2);
+
+            // el valor de los tag nuevos será siempre 1000, 1001,.. y asi sucesiv...
+            // averiguo el último por si fuera nuevo...
+            if (Number(opt.attr('value')) >= 1000) {
+                // es nuevo (sumo 1)
+                nuevoValor = Number(opt.attr('value')) + 1;
+            } else {
+                // es el primero nuevo
+                nuevoValor = '1000';
+            }
             
-            var app = "<option value='" + val + "' selected='selected'>" + val + "</option>";
-            // añadiré el valor al select en tiempo real..?
+            var app = "<option value='" + nuevoValor + "' selected='selected'>" + val + "</option>";
+            // añado option
             $( opt ).after(app);
             
             // deselecciono 'new'
@@ -211,11 +232,11 @@ $( function() {
         var files = $( this ).prop('files');
 
         if ( files.length > 0) {
-            tabla  = "<div id='img_tabla' class='w3-container w3-small' style='width:60%;margin:auto'>";
+            tabla  = "<div id='img_tabla' class='w3-container w3-small' style='width:40%;margin:auto'>";
             tabla += "<table class='w3-table-all'>";
-            tabla += "<tr><th class='w3-center w3-theme-d3'>Imagenes seleccionadas a enviar</th></tr>";
+            tabla += "<tr><th class='w3-center w3-theme-d3'>Imagenes seleccionadas para enviar</th></tr>";
             for (var i = 0; i < files.length; i++) {
-                tabla += "<tr><td class='w3-center'>" + files[i].name + "</td></tr>";        
+                tabla += "<tr><td>" + files[i].name + "</td></tr>";        
             }
             tabla += "</table></div>";
             $( this ).after(tabla);
