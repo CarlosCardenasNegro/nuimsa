@@ -72,7 +72,7 @@ if (count($_FILES) > 0 and $_FILES['imagenes']['name'][0] != '' ) {
     $id = '$$';
     $data_i = "<table class='w3-table-all' style='width:60%; margin:auto'>";
     $data_i .= "<tr class='w3-theme'><th class='w3-center'>";
-    $data_i .= "Se han guardado la(s) imágen(es) siguiente(s):<th/></tr>";
+    $data_i .= "Se han guardado la(s) imágen(es) siguiente(s):</th></tr>";
 
     $sql1 = "INSERT INTO `quiz_images` (`id`, `description`, `url`, `quiz_id`) VALUES ";
 
@@ -155,7 +155,7 @@ try {
         $conn->exec($sql1);        
 
         // creo el directorio destino,...
-        $uploaddir = "learning/images/$iniciales";
+        $uploaddir = IMAGES . $iniciales;
 
         if (!file_exists($uploaddir)) {
             if(!mkdir($uploaddir)) {

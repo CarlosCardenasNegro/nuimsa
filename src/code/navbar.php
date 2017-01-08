@@ -66,8 +66,8 @@ $auth = $user === 'Usuario invitado' ? false : true;
 
         <!-- menu inicio -->
         <?php if (!$auth): ?>    
-            <li>
-                <img src="<?= $esculapio_ico ?>" width="40px" style="position:relative; top: 4px; left: 5px"/>
+            <li  style="cursor:pointer">
+                <img src="<?= $esculapio_ico ?>" width="40px" style="position:relative; top: 8px; left: 8px"/>
             </li>
         <?php else: ?>
             <li class="w3-theme-d4">
@@ -215,7 +215,7 @@ $auth = $user === 'Usuario invitado' ? false : true;
                 <a href="#pag3" onclick="" class="w3-padding-large w3-hover-red"><i class="fa fa-question-circle-o"></i></a>
             </li>            
             <?php if (!$auth): ?>    
-                <li class="w3-right">
+                <li class="w3-right" style="cursor:pointer">
                     <a class="w3-padding-large w3-hover-red"  onclick="accesoProfesionales()" title="<?= $profesionalesTXT ?>">PROFESIONALES</a>
                 </li>
             <?php endif ?>
