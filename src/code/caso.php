@@ -173,13 +173,13 @@ $( function() {
     });
 
     $( 'input[name=newTag]' ).change( function () {
-        if( $( 'input[name=newTag]' ).data("submitted") === true) {
-            event.preventDefault();
-            event.stopPropagation();
-            // lo preparo para una nueva submisión
-            $( 'input[name=newTag]' ).data("submitted") === false;
-        } else {
-            $( 'input[name=newTag]' ).data("submitted", true); 
+//        if( $( 'input[name=newTag]' ).data("submitted") === true) {
+//            event.preventDefault();
+//            event.stopPropagation();
+//            // lo preparo para una nueva submisión
+//            $( 'input[name=newTag]' ).data("submitted") === false;
+//        } else {
+//            $( 'input[name=newTag]' ).data("submitted", true); 
 
             var nuevoValor = null;
             
@@ -215,7 +215,7 @@ $( function() {
             
             //event.preventDefault();
             //event.stopPropagation();
-        }
+//        }
     });
     
     $( 'input[name=newTag]' ).keypress( function (event) {
