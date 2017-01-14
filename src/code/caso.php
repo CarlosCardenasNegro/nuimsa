@@ -249,6 +249,7 @@ $( function() {
 
     $( 'form#caso' ).submit (function(event) {        
         var datos = new FormData($(this)[0]);
+        datos.append('rutina', 'upload');
         test(datos);
         event.preventDefault();
         event.stopPropagation();

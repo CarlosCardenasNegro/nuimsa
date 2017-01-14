@@ -172,44 +172,26 @@ function cargaInfo( filename ) {
  */
 /**
  * Envía datos de los formularios:
- * (1) Caso nuevo
- * (2) Entrevista clínica
+ * Entrevista clínica
  */
-function sendData( destino ) {
-/*    
-    if (destino === 'caso') {
-        // caso nuevo
-        //var str = $( "form" ).serialize();
-        var str = new FormData($( 'form#caso' ));
-        
-        $.post('learning/cargaCaso.php', str).done( function (responseText) {
-            if (responseText.substr(0, 5) === "Error") {
-                displayMensaje('up002', 'Error!', '',responseText); //,'','timer');                      
-            } else {
-                displayMensaje('up002', 'Exito!', '',responseText); //,'','timer');                                      
-            }            
-        });
-        cargaPag('inicio.php');                
-    } else {
-*/    
-        busy();
-        var str = $( "form" ).serialize();
-        url = APP + "procesado.php";
-        $.ajax({
-            url: url,
-            type: 'post',
-            data: str,
-            cache: false,
-            processData: false,
-            contentType: false,
-            success: function(responseText) {
-                displayMensaje('up002', 'Exito!', '',responseText,'','timer');      
-                cargaPag('inicio.php');
-            }
-        });
-/*        
-    }
-*/
+function sendData() {   
+    busy();
+    var datos = new FormData($( 'form' )[0]);
+    datos.append('rutina', 'procesado');
+    
+    url = APP + "upload.php";
+    $.ajax({
+        url: url,
+        type: 'post',
+        data: datos,
+        cache: false,
+        processData: false,
+        contentType: false,
+        success: function(responseText) {
+            displayMensaje('up002', 'Exito!', '',responseText,'','timer');      
+            cargaPag('inicio.php');
+        }
+    });
 }
 /**
  * Prepara el upload de los archivos a cargar en el servidor
@@ -231,9 +213,13 @@ function prepareUpload(event) {
     busy(true);
     // los he de enviar en su propio ajax request...
     var data = new FormData();
+    data.append('rutina', 'upload');
+    data.append('ini', $('#ini').val());
+    data.append('fec', $('#fec').val());
+    
     $.each(files, function(key, value) { data.append(key, value); });
     $.ajax ({
-        url: APP + 'upload.php?files&ini=' + iniciales + '&fec=' + fecha,
+        url: APP + 'upload.php',
         type: 'POST',
         data: data,
         cache: false,
@@ -253,7 +239,7 @@ function prepareUpload(event) {
                 }
                 $( '#nom_arc_hid' ).attr({'value': $arch});
             } else {
-                displayMensaje('up001', 'Error!', '',responseText);
+                displayMensaje('up001', 'Error!', '',responseText, '', 'timer');
             }
         }
     });
@@ -298,7 +284,7 @@ function checkboxChange( check ) {
         case 'solicitud':
             // caso de interes...
             var fecha = $( '#fec' ).val();            
-            salvaCaso();
+            //salvaCaso();
             break;
             
         case 'acude_por':

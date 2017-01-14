@@ -395,7 +395,7 @@ function creaSecciones($classArray, ...$param) {
                 </form><br/>
             </div>
             <div style="margin-top: 6%">
-                <button class="w3-btn w3-wide w3-theme-d1 w3-half w3-w3-hover-theme w3-hover-theme:hover" id="submit" onclick="sendData('')">Envia formulario</button>
+                <button class="w3-btn w3-wide w3-theme-d1 w3-half w3-w3-hover-theme w3-hover-theme:hover" id="submit" onclick="sendData()">Envia formulario</button>
                 <button class="w3-btn w3-wide w3-theme-d5 w3-half w3-w3-hover-theme w3-hover-theme:hover" id="cancel" onclick="cargaPag('inicio.php')">Cancelar</button>
                 <p/>
             </div>            
