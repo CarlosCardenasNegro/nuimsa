@@ -993,7 +993,7 @@ function showCaso( event ) {
         var casoID = event.target.parentElement.childNodes.item(0).childNodes.item(0).nodeValue;    
     }
 
-    if ($modo === 'editar') {
+    if ($modo === 'editar' || $modo === 'borrar') {
 
         // paso el testigo a caso.php y recibo el caso a editar
         $.post(caso, {'casoID': casoID, 'modo': $modo}).done( function(data) {
@@ -1005,7 +1005,13 @@ function showCaso( event ) {
                 $( '#xx093' ).fadeTo('slow', 0).hide();
                 $( '#dialogo' ).html(''); 
                 // muestro el nuevo contenido
-                $( '#contenido' ).html(data);
+                if ($modo === 'borrar') {
+                    $mensaje = "<p class='w3-center'>Se ha borrado el caso " + casoID + ".</p>";
+                    displayMensaje('xx093', 'Exito!', '', $mensaje, '', 'timer');     
+                    cargaPag('inicio.php');
+                } else {
+                    $( '#contenido' ).html(data);
+                }
             }
         });
             

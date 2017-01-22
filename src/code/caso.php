@@ -56,16 +56,25 @@ switch ($modo) {
         break;
         
     case 'editar':
+    
+    case 'borrar':
         // llego aquí desde showCaso()
-        // tengo que recuperar el caso
+        // puedo editar o borrar el caso
         
 /*        
         $sql = "SELECT `quiz`.*, `categoria`.*, `quiz_images`.*, `quiz_tags`.* FROM `quiz` LEFT JOIN `categoria` ON `categoria`.`id` = `quiz`.`categoria_id` LEFT JOIN `quiz_images` ON `quiz_images`.`quiz_id` = `quiz`.`id` LEFT JOIN `quiz_tags` ON `quiz_tags`.`quiz_id` = `quiz`.`id` WHERE (`quiz`.`id` = $casoID)";
 */
-        // recupero la secuencia...
-        // (1) quiz; (2) quiz_tags
-        $sql  = "select * FROM quiz where `id` = $casoID";
-        $sql1 = "SELECT `tags`.`id` FROM `quiz_tags` LEFT JOIN `tags` ON `quiz_tags`.`tag_id` = `tags`.`id` WHERE (`quiz_tags`.`quiz_id` = $casoID)";
+        if ($modo === 'editar') {
+            // edición recupero la secuencia...
+            // (1) quiz; (2) quiz_tags
+            $sql  = "select * FROM quiz where `id` = $casoID";
+            $sql1 = "SELECT `tags`.`id` FROM `quiz_tags` LEFT JOIN `tags` ON `quiz_tags`.`tag_id` = `tags`.`id` WHERE (`quiz_tags`.`quiz_id` = $casoID)";
+        } else {
+            // borrado
+            $sql = "DELETE FROM `quiz_tags` WHERE `quiz_id` = $casoID";
+            $sql1 = "DELETE FROM `quiz_images` WHERE `quiz_id` = $casoID";
+            $sql2 = "DELETE FROM `quiz` WHERE `id` = $casoID";
+        }
         
         /**
          * Set parameters according to Host (local o web server)
@@ -83,33 +92,42 @@ switch ($modo) {
             // set the PDO error mode to exception
             $conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     
-            // recupero la consulta de Todos los casos
-            // (1) quiz
-            $stmt = $conn->query($sql);    
-            $stmt->setFetchMode(\PDO::FETCH_ASSOC); 
-            $quiz = $stmt->fetchAll();
+            if ($modo === 'editar') {
+                // recupero la consulta de Todos los casos
+                // (1) quiz
+                $stmt = $conn->query($sql);    
+                $stmt->setFetchMode(\PDO::FETCH_ASSOC); 
+                $quiz = $stmt->fetchAll();
 
-            // (1) quiz_tags
-            $stmt = $conn->query($sql1);    
-            $stmt->setFetchMode(\PDO::FETCH_ASSOC); 
-            $quiz_tags = $stmt->fetchAll();
-            
-            $quiz = $quiz[0];
-            foreach ($quiz_tags as $key => $value) {
-                $tags[] = $value['id'];                
-            }                
-                
-            if ($quiz) {
-                $temp =  explode('/', $quiz['icon']);
-                $casoNuevo = new Casonuevo(
-                    $temp[0],
-                    $quiz['categoria_id'],
-                    $tags,
-                    conviertefecha($quiz['dia'], 'local'),
-                    $quiz['title'],
-                    $quiz['subtitle'],
-                    $quiz['contenido']
-                );
+                // (1) quiz_tags
+                $stmt = $conn->query($sql1);    
+                $stmt->setFetchMode(\PDO::FETCH_ASSOC); 
+                $quiz_tags = $stmt->fetchAll();
+
+                $quiz = $quiz[0];
+                foreach ($quiz_tags as $key => $value) {
+                    $tags[] = $value['id'];                
+                }                
+
+                if ($quiz) {
+                    $temp =  explode('/', $quiz['icon']);
+                    $casoNuevo = new Casonuevo(
+                        $temp[0],
+                        $quiz['categoria_id'],
+                        $tags,
+                        conviertefecha($quiz['dia'], 'local'),
+                        $quiz['title'],
+                        $quiz['subtitle'],
+                        $quiz['contenido']
+                    );
+                }
+            } else {
+                // borrado
+                $conn->exec($sql);
+                $conn->exec($sql1);
+                $conn->exec($sql2);
+                $conn = null;
+                exit;                
             }
             
             $conn = null;        
@@ -119,7 +137,7 @@ switch ($modo) {
             exit;
         }
         break;
-}
+ }
 
 // salida a pantalla
 ?>
@@ -262,7 +280,7 @@ $( function() {
     
     $( '#botonera').on('click', function() {
         var boton = event.target.id;
-        if (boton == 'cancelar') { return true; }
+        if (boton == 'cancel') { return true; }
     });
 });
 </script>
