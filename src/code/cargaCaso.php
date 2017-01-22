@@ -28,7 +28,6 @@ use Gregwar\Image\Image;
 use function nuimsa\tools\testInput;
  
 require_once ROOT . DS . 'tools/tools.php';
-//require_once './vendor/autoload.php';
 
 /**
  * Procesa los datos par un caso Quiz nuevo:
@@ -44,6 +43,7 @@ $resul = array(
 $tags = $_POST['tag'];
 $data = '';
 $data_i = '';
+$id = '$$';
 
 /**
  *  sql strings para cada tabla...
@@ -52,7 +52,7 @@ $data_i = '';
 $sql = "INSERT INTO `quiz` (`id`, `categoria_id`, `dia`, `title`, `subtitle`, `contenido`, `correcta`, `solucion`, `icon`) ";
 $sql .= "VALUES (";
 $sql .= "NULL, ";
-$sql .= "1, ";
+$sql .= "'" . $resul['categoria'] . "', ";
 $sql .= "'" . $resul['dia'] . "', ";
 $sql .= "'" . $resul['title'] . "', ";
 $sql .= "'" . $resul['subtitle'] . "', ";
@@ -69,7 +69,6 @@ $data = "<p class='w3-center'>Los datos del caso $iniciales se han guardado con 
  */
 if (count($_FILES) > 0 and $_FILES['imagenes']['name'][0] != '' ) {
     $imagenes = $_FILES['imagenes'];
-    $id = '$$';
     $data_i = "<table class='w3-table-all' style='width:60%; margin:auto'>";
     $data_i .= "<tr class='w3-theme'><th class='w3-center'>";
     $data_i .= "Se han guardado además la(s) imágen(es) siguiente(s):</th></tr>";
@@ -141,6 +140,10 @@ if (count($_FILES) > 0 and $_FILES['imagenes']['name'][0] != '' ) {
         }
     }
     $data .= $data_i;
+} else {
+    $data = "Error<p class='w3-center'>No se han pasado imágenes. No puedo crear el caso nuevo.</p>";
+    echo $data;
+    exit;
 }
 
 // (3) Ahora los quiz_tags ($sql2) y los tags ($sql3)
@@ -188,7 +191,7 @@ try {
     $conn->exec($sql);
     // recupero el id del registro 
     $id = $conn->lastInsertId();        
-    // paso el sql de las imágenes si hay 
+    // paso el sql de las imágenes debe haber,..! 
     if (isset($imagenes)) {
         $sql1 = str_replace('$$', $id, $sql1);
         $conn->exec($sql1);
