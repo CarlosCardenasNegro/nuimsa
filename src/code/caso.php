@@ -153,6 +153,7 @@ input[name=newTag] { position: absolute; top:5%; left:50%; width: 10%; margin:au
 <script>
 $( function() {    
     // initial actions
+    // posiciona y oculta el edit fields para new tags
     var top = ($( '#tag' ).position().top + $( '#tag' ).height() + 28).toString() + 'px';
     var left = $( '#tag' ).position().left.toString() + 'px';
     var width = $( '#tag' ).width().toString() + 'px';
@@ -160,14 +161,13 @@ $( function() {
     
     // añado al select la opción de "Nueva etiqueta"...
     var ultima = $( '#tag option' ).length
-    var html = '<option value="999">Añadir etiqueta</option>';
-    // añado option
+    var html = '<option class="w3-text-theme" value="9999">*** Añadir etiqueta nueva ***</option>';
     var option = $( '#tag option' ).eq(ultima - 1);
     $( option ).after(html);
     
     // event managers    
     $( '#tag' ).click( function(event) { 
-        if(event.target.innerHTML === "Añadir etiqueta") {
+        if(event.target.innerHTML === "*** Añadir etiqueta nueva ***") {
             $( 'input[name=newTag]' ).fadeTo('slow', 1).focus();    
         };    
     });
@@ -181,23 +181,28 @@ $( function() {
 //        } else {
 //            $( 'input[name=newTag]' ).data("submitted", true); 
 
-            var nuevoValor = null;
+            var nuevoTagValue = null;
             
             var val = $(this).val();
             var ult = $( '#tag option' ).length;
             var opt = $( '#tag option' ).eq(ult-2);
 
-            // el valor de los tag nuevos será siempre 1000, 1001,.. y asi sucesiv...
-            // averiguo el último por si fuera nuevo...
-            if (Number(opt.attr('value')) >= 1000) {
-                // es nuevo (sumo 1)
-                nuevoValor = Number(opt.attr('value')) + 1;
+            /**
+             * Los nuevos tag se iran numerando sucesivamente
+             * les añado la descripción separada por un guión.
+             * Al recuperarlos debo quedarmen solo con el número
+             * antes de añadir uno nuevo... me gustaría hacerlo mejor
+             * posiblemente añadiendo un campo hidden donde guardaría
+             * los nuevos tags,...
+             */
+            var pos = (opt.val()).indexOf('-'); 
+            if ( pos === -1) {
+                var nuevoTagValue = (Number(opt.val()) + 1).toString() + '-' + val;            
             } else {
-                // es el primero nuevo
-                nuevoValor = '1000';
+                var valor = (opt.val()).substr(0, pos);
+                var nuevoTagValue = (Number(valor) + 1).toString() + '-' + val;                
             }
-            
-            var app = "<option value='" + nuevoValor + "' selected='selected'>" + val + "</option>";
+            var app = "<option value='" + nuevoTagValue + "' selected='selected'>" + val + "</option>";
             // añado option
             $( opt ).after(app);
             

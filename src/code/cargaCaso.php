@@ -25,36 +25,30 @@
 }
 
 use Gregwar\Image\Image;
-use function nuimsa\tools\getValores1;
+use function nuimsa\tools\testInput;
  
 require_once ROOT . DS . 'tools/tools.php';
 //require_once './vendor/autoload.php';
 
 /**
  * Procesa los datos par un caso Quiz nuevo:
- * el primer dato son las iniciales que 
- * servirán para el almacenamiento de las
- * imágenes.
- * Los 5 restantes son para la tabla Quiz
- * (incluye el icono).
- * Nota: el contenido puede ser HTML por lo
- * tanto no lo 'escapo'.
- * A continuación vienen las imágenes.
  */
-
-$iniciales = strtoupper(htmlspecialchars($_POST['iniciales']));
+$iniciales = strtoupper(testInput($_POST['iniciales']));
 $resul = array(
-    'categoria' => htmlspecialchars($_POST['categoria']),
-    'dia' =>  htmlspecialchars($_POST['dia']),
-    'title' =>  htmlspecialchars($_POST['title']),
-    'subtitle' =>  htmlspecialchars($_POST['subtitle']),
+    'categoria' => testInput($_POST['categoria']),
+    'dia' => testInput($_POST['dia']),
+    'title' => testInput($_POST['title']),
+    'subtitle' => testInput($_POST['subtitle']),
     'contenido' =>  $_POST['contenido']
 );
 $tags = $_POST['tag'];
 $data = '';
+$data_i = '';
 
-// sql strings para cada tabla...
-// (1) quiz
+/**
+ *  sql strings para cada tabla...
+ */
+// (1) quiz ($sql)
 $sql = "INSERT INTO `quiz` (`id`, `categoria_id`, `dia`, `title`, `subtitle`, `contenido`, `correcta`, `solucion`, `icon`) ";
 $sql .= "VALUES (";
 $sql .= "NULL, ";
@@ -65,31 +59,35 @@ $sql .= "'" . $resul['subtitle'] . "', ";
 $sql .= "'" . $resul['contenido'] . "', ";
 $sql .= "NULL, NULL, ";
 $sql .= "'" . $iniciales . "/ICONO.JPEG');";
+$data = "<p class='w3-center'>Los datos del caso $iniciales se han guardado con éxito.<br/>";
 
-// ojo siempre se pasa un S_FILES[] = 1 pero vacío..¡¡
+// (2) quiz_images ($sql1)
+/** 
+ * ojo, siempre se pasa un S_FILES[] = 1 pero vacío..¡¡
+ * la variable $id contendrá en principio un dummy value $$
+ * que después será sustituido por el verdadero quiz_id
+ */
 if (count($_FILES) > 0 and $_FILES['imagenes']['name'][0] != '' ) {
     $imagenes = $_FILES['imagenes'];
     $id = '$$';
     $data_i = "<table class='w3-table-all' style='width:60%; margin:auto'>";
     $data_i .= "<tr class='w3-theme'><th class='w3-center'>";
-    $data_i .= "Se han guardado la(s) imágen(es) siguiente(s):</th></tr>";
+    $data_i .= "Se han guardado además la(s) imágen(es) siguiente(s):</th></tr>";
 
     $sql1 = "INSERT INTO `quiz_images` (`id`, `description`, `url`, `quiz_id`) VALUES ";
-
     // preparo las imágenes 
     for ($i = 0; $i < count($imagenes['name']); $i++) {
-        
-        // extraigo el número de posición
-        // ojo se asume un guion '-' entre el número
-        // y el nombre del archivo.
-        // puede haber más guiones pues solo se quita
-        // el primero.
-        // Nota: no usar underscores¡¡¡
+        /**
+         * Para cargar las imágenes ordenadamente debemos componer
+         * el nombre del archivo con un número, un guión alto y el nombre.
+         * Ej.: 2-PIES ANT vascular.jpg (será la imagen número 2)
+         * Nota: no usar underscores¡¡¡
+         */
         $basename = explode('-', $imagenes['name'][$i]);
         $first = array_shift($basename);
         $imagenes['name'][$i] = implode(' ', $basename);
         
-        // normalizo extensión... 
+        // normalizo la extensión... jpg --> JPEG
         $basename = explode('.', strtoupper($imagenes['name'][$i]));
         $name = $basename[0];
         $ext =  $basename[1];
@@ -103,10 +101,10 @@ if (count($_FILES) > 0 and $_FILES['imagenes']['name'][0] != '' ) {
         // el icono que será a 128x128
         if (substr($name, 0, 5) === 'ICONO') {
             $ancho = 128;
-            $alto = 128;    
+            $alto = 128;
         } else {
             $ancho = 512;
-            $alto = 512;    
+            $alto = 512;
         }
         Image::open($imagenes['tmp_name'][$i])
             ->resize($ancho, $alto)
@@ -119,13 +117,58 @@ if (count($_FILES) > 0 and $_FILES['imagenes']['name'][0] != '' ) {
             $sql1 .= "'$name', '$iniciales/$basename', '$id'), ";
             $data_i .= "<tr><td class='w3-center'>$name</td></tr>";            
         }
-    }
-    
+    }    
     $sql1 = substr($sql1, 0, strlen($sql1) - 2) . ';';
     $data_i .= "</table>";
+
+    // ahora almaceno las imágenes
+    // creo el directorio destino,...
+    $uploaddir = IMAGES . $iniciales;
+
+    if (!file_exists($uploaddir)) {
+        if(!mkdir($uploaddir)) {
+            $data = "Error<p class='w3-center'>No se ha podido crear el directorio $uploaddir. No puedo guardar el caso.</p>";
+            echo $data;
+            exit;
+        }
+    }
+    for ($i = 0; $i < count($imagenes['name']); $i++ ) {
+        $destino = $uploaddir . '/' . $imagenes['name'][$i];
+        if (!move_uploaded_file($imagenes['tmp_name'][$i], $destino)) {
+            $data = "Error<p class='w3-center'>Se ha producido un error al subir el archivo $destino.</p>";
+            echo $data;
+            exit;
+        }
+    }
+    $data .= $data_i;
 }
-    
+
+// (3) Ahora los quiz_tags ($sql2) y los tags ($sql3)
+$tagNuevo = false;
+$sql2 = "INSERT INTO `quiz_tags` (`id`, `quiz_id`, `tag_id`) VALUES ";    
+$sql3 = "INSERT INTO `tags` (`id`, `description`) VALUES ";
+
+foreach ($tags as $value) {
+    $pos = strpos($value, '-');
+    if (!$pos) { 
+        $sql2 .= "(NULL, '$id', '$value'),";
+    } else {
+        // tag nuevo
+        $tagNuevo = true;
+        $desc = substr($value, $pos + 1, strlen($value));
+        $value = substr($value, 0, $pos);
+        $sql2 .= "(NULL, '$id', '$value'),";
+        $sql3 .= "('$value', '$desc'),";                    
+    }
+}   
+// limpio el final
+$sql2 = substr($sql2, 0, strlen($sql2)-1) . ';';
+if ($tagNuevo) {
+    $sql3 = substr($sql3, 0, strlen($sql3)-1) . ';';
+}
+
 /**
+ * Store all...!!
  * Set parameters according to Host (local o web server)
  */
 if ($_SERVER['HTTP_HOST'] === 'localhost') {
@@ -144,82 +187,26 @@ try {
     // paso el sql para el Quiz_caso
     $conn->exec($sql);
     // recupero el id del registro 
-    $id = $conn->lastInsertId();
-        
-    $data = "<p class='w3-center'>Los datos del caso $iniciales se han guardado con éxito.<br/>";
-    
-    // ahora cargo las imágenes
+    $id = $conn->lastInsertId();        
+    // paso el sql de las imágenes si hay 
     if (isset($imagenes)) {
-        // paso el sql para las imágenes si hay imágnes..?
-        $sql1 = str_replace('$$', $id, $sql1); 
-        $conn->exec($sql1);        
-
-        // creo el directorio destino,...
-        $uploaddir = IMAGES . $iniciales;
-
-        if (!file_exists($uploaddir)) {
-            if(!mkdir($uploaddir)) {
-                $data = "Error<p class='w3-center'>No se ha podido crear el directorio $uploaddir. No puedo guardar las imágenes del caso.</p>";
-                echo $data;
-                exit;
-            }
-        }
-        
-        for ($i = 0; $i < count($imagenes['name']); $i++ ) {
-            $destino = $uploaddir . '/' . $imagenes['name'][$i];
-            if (!move_uploaded_file($imagenes['tmp_name'][$i], $destino)) {
-                $data = "Error<p class='w3-center'>Se ha producido un error al subir el archivo $destino.</p>";
-            }
-        }
-        $data .= $data_i;
+        $sql1 = str_replace('$$', $id, $sql1);
+        $conn->exec($sql1);
+    }    
+    // paso el sql de los tags y quiz_tags
+    if ($tagNuevo) { 
+        $conn->exec($sql3);
     }
-
-    // por ultimo voy a añadir los tags...
-    // pero debo saber si hay nuevos,... antes de nada...
-    // cargo los tags actuales y los comparo con cada uno de los
-    // pasados,... seguro que se puede mejorar...
-    // a la vez que guardo los tags voy creando el sql para
-    // quiz_tags...
-    //
-/*
-    $id_s = array();
-    
-    $sql = "INSERT INTO `quiz_tags` (`id`, `quiz_id`, `tag_id`) VALUES ";    
-    $sql1 = "INSERT INTO `tags` (`id`, `description`) VALUES ";
-    $resul = getValores1('tags', 'description');
-    foreach ($tags as $key => $tagvalue) {
-            if(!in_array($tagvalue, $resul)) {
-                // tag nuevo lo debo guardar
-                $sql1 .= "(NULL, $tagvalue);";
-                $conn->exec($sql1);
-                // recupero el id del registro 
-                $id_[] = $conn->lastInsertId();
-            } else {
-                // estaba lo paso sin problemas
-            }
-    }
-    
-    
-    
-    
-    foreach ($tags as $key => $value) {
-        $sql .= "(NULL, $id, $value),";        
-    }
-    // limpio el final
-    $sql = substr($sql, 0, strlen($sql)-1) . ';';
-    
-    // paso el sql 
-    $conn->exec($sql);
-*/    
-    //uff, me voy,...a la cama claro,..¡¡ late night version..¡¡
-    
-} catch (\PDOException $e) {
-    echo $e->getMessage;    
+    $sql2 = str_replace('$$', $id, $sql2);
+    $conn->exec($sql2);
+    echo $data;
 }
-
+catch(\PDOException $e) {
+    echo "Error - Connection failed: " . $e->getMessage();
+    exit;
+}
 $conn = null;
-echo $data;
-
+/*
 function reArrayFiles(&$file_post) {
 
     $file_ary = array();
@@ -234,4 +221,4 @@ function reArrayFiles(&$file_post) {
 
     return $file_ary;
 }
-?>
+*/

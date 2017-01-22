@@ -551,6 +551,7 @@ class Base {
      * y la 'description' al campo 'valores', ya que, las id no
      * tienen porque ser correlativas pues si borramos una no se recupera
      * su id y se saltan valores,...
+     * ATENCION: voy a ordenar por el PRIMER CAMPO PASADO SERÁ EL id gral. ...¡¡
      *
      * @param string $tabla Nombre de la Tabla donde se encuentran los valores
      * @param array $campos Nombre de(los) campo(s) a recuperar
@@ -559,7 +560,7 @@ class Base {
 
         $result = array(); 
         $campos_s = implode(',', $campos);
-        $sql = "select $campos_s FROM $tabla";
+        $sql = "SELECT $campos_s FROM $tabla ORDER BY " . $campos[0];
         
         /**
          * Set parameters according to Host (local o web server)
