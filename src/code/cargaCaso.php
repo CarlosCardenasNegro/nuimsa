@@ -38,7 +38,8 @@ $resul = array(
     'dia' => testInput($_POST['dia']),
     'title' => testInput($_POST['title']),
     'subtitle' => testInput($_POST['subtitle']),
-    'contenido' =>  $_POST['contenido']
+    'contenido' =>  $_POST['contenido'],
+    'names' => testInput($_POST['names'])
 );
 $tags = $_POST['tag'];
 $data = '';

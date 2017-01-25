@@ -1042,6 +1042,26 @@ function showCaso( event ) {
 }
 
 /**
+ * A partir de una lista de archivos crea y retorna una tabla.
+ * Asumo siempre que se ha pasado el objeto correcto y con datos
+ * (testeo para length > 0 en el origen)
+ * 
+ * @param array files Contiene los nombres de los archivos
+ * @returns string tabla Salida HTML de la tabla de archivos
+ */
+function creaTabla(files) {
+    var tabla = null;
+    
+    tabla  = "<div id='img_tabla' class='w3-container w3-small' style='width:40%;margin:auto'>";
+    tabla += "<table class='w3-table-all'>";
+    tabla += "<tr><th class='w3-center w3-theme-d3'>Imagenes seleccionadas para enviar</th></tr>";
+    for (var i = 0; i < files.length; i++) {
+        tabla += "<tr><td>" + files[i].name + "</td></tr>";        
+    }
+    tabla += "</table></div>";
+    return tabla;
+}
+/**
  * Muestra la información sobre el archivo datos_pacientes.xml y
  * Copia o Restaura el archivo
  *

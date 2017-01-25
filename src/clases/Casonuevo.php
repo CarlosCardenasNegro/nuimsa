@@ -42,7 +42,8 @@ class Casonuevo extends Base {
             "title" => array ("label" => "Título",   "type" => "text",   "value" => "", "id" => "tit"),
             "subtitle" => array ("label" => "Subtítulo",   "type" => "text",   "value" => "", "id" => "sub"),
             "contenido" => array ("label" => "Contenido e información sobre la imagen (normal or html)", "type" => "textarea", "value" => "", "id" => "con"),
-            "imagenes" => array ("label" => "Seleccione las imágenes del caso. Una se debe llamar ICONO y será usada para el icono :", "type" => "file", "value" => "", "id" => "img"))
+            "imagenes" => array ("label" => "Seleccione las imágenes del caso. Una se debe llamar ICONO y será usada para el icono :", "type" => "file", "value" => "", "id" => "img"),
+            "names" => array("label" => "", "type" => "hidden", "value" => "", "id" => "nam"))
     );
     
     // methods
@@ -60,6 +61,7 @@ class Casonuevo extends Base {
         $this->_datos['campos']["subtitle"]['value'] = "";
         $this->_datos['campos']["contenido"]['value'] = "";
         $this->_datos['campos']["imagenes"]['value'] = "";
+        $this->_datos['campos']["names"]['value'] = "";
                 
         switch (func_num_args()) {
             case 1:
@@ -155,6 +157,24 @@ class Casonuevo extends Base {
                 $this->_datos['campos']["subtitle"]['value'] = $param[5];
                 $this->_datos['campos']["contenido"]['value'] = $param[6];
                 $this->_datos['campos']["imagenes"]['value'] = $param[7];
+                break;                
+            case 9:
+                $this->_datos['campos']["iniciales"]['value'] = $param[0];
+                $this->_datos['campos']["categoria"]['value'] = $param[1];
+                // caso especial debería pasarse un array de tags
+                if((array)$param === $param) {
+                    // OJO, si no se pasa un array quedará default (0)
+                    // tag contendrá uno o varios valores
+                    foreach ($param[2] as $key => $value) {
+                        $this->_datos['campos']["tag[]"]['value'][$key] = $value;
+                    }
+                }
+                $this->_datos['campos']["dia"]['value'] = $param[3];
+                $this->_datos['campos']["title"]['value'] = $param[4];
+                $this->_datos['campos']["subtitle"]['value'] = $param[5];
+                $this->_datos['campos']["contenido"]['value'] = $param[6];
+                $this->_datos['campos']["imagenes"]['value'] = $param[7];
+                $this->_datos['campos']["names"]['value'] = $param[8];
                 break;                
             }
         parent::__construct($this->_datos);  

@@ -65,10 +65,11 @@ switch ($modo) {
         $sql = "SELECT `quiz`.*, `categoria`.*, `quiz_images`.*, `quiz_tags`.* FROM `quiz` LEFT JOIN `categoria` ON `categoria`.`id` = `quiz`.`categoria_id` LEFT JOIN `quiz_images` ON `quiz_images`.`quiz_id` = `quiz`.`id` LEFT JOIN `quiz_tags` ON `quiz_tags`.`quiz_id` = `quiz`.`id` WHERE (`quiz`.`id` = $casoID)";
 */
         if ($modo === 'editar') {
-            // edición recupero la secuencia...
-            // (1) quiz; (2) quiz_tags
+            // edición recupero la secuencia... 
+            // (1) quiz; (2) quiz_tags; (3) quiz_images
             $sql  = "select * FROM quiz where `id` = $casoID";
             $sql1 = "SELECT `tags`.`id` FROM `quiz_tags` LEFT JOIN `tags` ON `quiz_tags`.`tag_id` = `tags`.`id` WHERE (`quiz_tags`.`quiz_id` = $casoID)";
+            $sql2 = "SELECT * FROM `quiz_images` WHERE `quiz_id` = $casoID";
         } else {
             // borrado
             $sql = "DELETE FROM `quiz_tags` WHERE `quiz_id` = $casoID";
@@ -99,15 +100,21 @@ switch ($modo) {
                 $stmt->setFetchMode(\PDO::FETCH_ASSOC); 
                 $quiz = $stmt->fetchAll();
 
-                // (1) quiz_tags
+                // (2) quiz_tags
                 $stmt = $conn->query($sql1);    
                 $stmt->setFetchMode(\PDO::FETCH_ASSOC); 
                 $quiz_tags = $stmt->fetchAll();
-
+                
+                // (3) quiz_images
+                $stmt = $conn->query($sql2);    
+                $stmt->setFetchMode(\PDO::FETCH_ASSOC); 
+                $quiz_images = $stmt->fetchAll();
+                
                 $quiz = $quiz[0];
                 foreach ($quiz_tags as $key => $value) {
                     $tags[] = $value['id'];                
-                }                
+                }
+                
 
                 if ($quiz) {
                     $temp =  explode('/', $quiz['icon']);
@@ -253,8 +260,16 @@ $( function() {
 
         var tabla = null;        
         var files = $( this ).prop('files');
-
+        var names = "";
+        
         if ( files.length > 0) {
+            // guardo los nombres en names[]
+            for (var i = 0; i < files.length; i++) {
+                names += files[i].name + ';';
+            }
+            $( '#nam' ).attr('value', names.substr(0, names.length - 1));
+            var tabla = creaTabla(files);
+            /*
             tabla  = "<div id='img_tabla' class='w3-container w3-small' style='width:40%;margin:auto'>";
             tabla += "<table class='w3-table-all'>";
             tabla += "<tr><th class='w3-center w3-theme-d3'>Imagenes seleccionadas para enviar</th></tr>";
@@ -262,6 +277,7 @@ $( function() {
                 tabla += "<tr><td>" + files[i].name + "</td></tr>";        
             }
             tabla += "</table></div>";
+            */
             $( this ).after(tabla);
         } else {
             if (document.getElementById('img_tabla') !== null) {
