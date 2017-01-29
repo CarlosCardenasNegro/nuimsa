@@ -76,16 +76,16 @@ $auth = $user === 'Usuario invitado' ? false : true;
         <?php endif ?>    
         <!-- standar menu -->
         <span class="w3-hide-small">
-            <!-- Generalidades: Medicina Nuclear -->
-            <li class="w3-dropdown-hover w3-hover-none w3-theme-d1">
-                <a class="<?= $a_class ?>"  title="<?= $medicinaTXT; ?>">MEDICINA NUCLEAR&nbsp;<i class="fa fa-caret-down"></i></a>
-                <div class="w3-dropdown-content w3-theme-d1 w3-card-4" style="opacity: .9">
-                    <a class="w3-hover-none" href="#pag1">Que es la medicina nuclear.?</a>
-                    <a class="w3-hover-none" href="#pag2">Dos clases de medicina nuclear</a>
-                </div>
-            </li> 
             <!-- Generalidades: información solo en menu simple -->
             <?php if (!$auth): ?>    
+                <!-- Generalidades: Medicina Nuclear -->
+                <li class="w3-dropdown-hover w3-hover-none w3-theme-d1">
+                    <a class="<?= $a_class ?>"  title="<?= $medicinaTXT; ?>">MEDICINA NUCLEAR&nbsp;<i class="fa fa-caret-down"></i></a>
+                    <div class="w3-dropdown-content w3-theme-d1 w3-card-4" style="opacity: .9">
+                        <a class="w3-hover-none" href="#pag1">Que es la medicina nuclear.?</a>
+                        <a class="w3-hover-none" href="#pag2">Dos clases de medicina nuclear</a>
+                    </div>
+                </li> 
                 <li class="w3-dropdown-hover w3-hover-none">
                     <a class="<?= $a_class ?>"  title="<?= $documentosTXT ?>">INFORMACION&nbsp;<i class="fa fa-caret-down"></i></a>
                     <div class="w3-dropdown-content w3-theme-d1 w3-card-4" style="opacity: .9">
@@ -96,7 +96,7 @@ $auth = $user === 'Usuario invitado' ? false : true;
                 </li>        
             <?php else: ?>
                 <!-- Menu: garantía de calidad -->
-                <li class="w3-dropdown-hover w3-hover-none">
+                <li class="w3-dropdown-hover w3-hover-none w3-theme-d1">
                     <a class="<?= $a_class ?>"  title="<?= $garantiaTXT; ?>">GARANTIA DE CALIDAD&nbsp;<i class="fa fa-caret-down"></i></a>
                     <div class="w3-dropdown-content w3-theme-d1 w3-card-4" style="opacity: .9">
                         <a class="w3-hover-none" href="http://localhost/IRA/GC/Consentimientos/" target="_blank" title="<?= $consentimientosTXT; ?>">Consentimientos</a>
