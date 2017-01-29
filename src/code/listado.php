@@ -24,6 +24,10 @@
     require $CONFIG . 'paths.php';
 }
 
+use function nuimsa\tools\testInput;
+
+require_once ROOT . DS . 'tools/tools.php';
+
 /**
  * listado.php - recupera el listado de casos de interés y demás
  * de acuerdo a la selección del usuario.
@@ -33,7 +37,7 @@
  */
 
 if (isset($_POST['seleccion'])) {
-    $seleccion = htmlspecialchars($_POST['seleccion']);
+    $seleccion = testInput($_POST['seleccion']);
     if ($seleccion != "7") {
         // por categoría
         $sql1 = 'select quiz.id, quiz.dia, quiz.subtitle, quiz.icon FROM quiz WHERE categoria_id = :cate';
@@ -42,12 +46,12 @@ if (isset($_POST['seleccion'])) {
         $sql1 = 'select quiz.id, quiz.dia, quiz.subtitle, quiz.icon FROM quiz';        
     }
     $value = false;
-    $desc = htmlspecialchars($_POST['descripcion']);
+    $desc = testInput($_POST['descripcion']);
     
 } else {
     if (isset($_GET['value'])) {
         $value = true;
-        $param = htmlspecialchars($_GET['value']);
+        $param = testInput($_GET['value']);
         $sql = 'select ' . $param . '.* FROM ' . $param;
     } else {
         echo 'Error'; 
@@ -113,8 +117,11 @@ try {
         
         foreach ($quiz as $value) {
             $src = NUIMSA . 'learning/images/' . $value['icon'];            
-            $dt = new \DateTime($value['dia'], new \DateTimeZone('Europe/London'));
-            $fecha = $dt->format('d-m-Y');
+
+            //$dt = new \DateTime($value['dia'], new \DateTimeZone('Europe/London'));
+            //$fecha = $dt->format('d-m-Y');
+            $tmp = \date_create_from_format('Y-m-d', $value['dia']);
+            $fecha = $tmp->format('d-m-Y');
             
             $data .= '<tr class="w3-hover-theme:hover">';
             $data .= '<td>' . $value['id'] . '</td>';
