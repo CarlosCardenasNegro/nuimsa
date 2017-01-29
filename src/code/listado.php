@@ -4,24 +4,26 @@
  * Copywright (c) San Miguel Software, Sl. (http://www.sanmiguelsoftware.com)
  *
  * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.TXT (https://www.tldrlegal.com/l/mit)
+ * For full copyright and license information, please see the 
+ * LICENSE.TXT (https://www.tldrlegal.com/l/mit)
+ *
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright   Copywright (c) San Miguel Software (http://www.sanmiguelsoftware.com)
- * @author      Carlos Cárdenas Negro 
- * @link        http://www.nuimsa.es
- * @since       0.1.0
- * @license     http://www.opensource.org/licenses/mit-license.php MIT License
- * @version     2.0
+ * @author    Carlos Cárdenas Negro <carloscardenasnegro@gmail.com>
+ * @copyright Copywright (c) 2016 San Miguel Software (http://www.sanmiguelsoftware.com)
+ * @link      http://www.nuimsa.es
+ * @version   2.0
+ * @since     0.1.0
+ * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
 /**
  * Load constants...
  */
- if (!isset($_SESSION)) { 
+if (!isset($_SESSION)) { 
     session_start();
     $CONFIG = $_SESSION['CONFIG'];
-    require $CONFIG . 'paths.php';
+    include $CONFIG . 'paths.php';
 }
 
 use function nuimsa\tools\testInput;
@@ -29,7 +31,7 @@ use function nuimsa\tools\testInput;
 require_once ROOT . DS . 'tools/tools.php';
 
 /**
- * listado.php - recupera el listado de casos de interés y demás
+ * Recupera el listado de casos de interés y demás
  * de acuerdo a la selección del usuario.
  * También se usa para recuperar por ejemplo la lista de categorías
  * para el menu,... (en este caso paso un GET con lo que queremos
@@ -40,7 +42,8 @@ if (isset($_POST['seleccion'])) {
     $seleccion = testInput($_POST['seleccion']);
     if ($seleccion != "7") {
         // por categoría
-        $sql1 = 'select quiz.id, quiz.dia, quiz.subtitle, quiz.icon FROM quiz WHERE categoria_id = :cate';
+        $sql1 = 'select quiz.id, quiz.dia, quiz.subtitle, quiz.icon FROM';
+        $sql1 .= ' quiz WHERE categoria_id = :cate';
     } else {
         // todos
         $sql1 = 'select quiz.id, quiz.dia, quiz.subtitle, quiz.icon FROM quiz';        
