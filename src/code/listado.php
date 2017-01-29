@@ -113,8 +113,8 @@ try {
         
         foreach ($quiz as $value) {
             $src = NUIMSA . 'learning/images/' . $value['icon'];            
-            $fecha = date_create_from_format('Y-m-d', $value['dia']);
-            $fecha = $fecha->format('d-m-Y');
+            $dt = new \DateTime($value['dia'], new \DateTimeZone('Europe/London'));
+            $fecha = $dt->format('d-m-Y');
             
             $data .= '<tr class="w3-hover-theme:hover">';
             $data .= '<td>' . $value['id'] . '</td>';
