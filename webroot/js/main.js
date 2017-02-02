@@ -175,7 +175,7 @@ function cargaInfo( filename ) {
  * Entrevista clínica
  */
 function sendData() {   
-    busy();
+    busy(true);
     var datos = new FormData($( 'form' )[0]);
     datos.append('rutina', 'procesado');
     
@@ -200,7 +200,9 @@ function sendData() {
  * @returns {undefined}
  */
 function prepareUpload(event) {    
-    var files;    
+    var files;
+    
+    busy();
     files = event.target.files;
     
     // Envio las iniciales y fecha para preparar los directorios
@@ -550,6 +552,7 @@ function muestraListado( valor ) {
     // primero cierro el diálogo
     $( '#dia002' ).fadeTo('slow', 0).hide();
     $( '#dialogo' ).html('');
+    busy(true);
     // ahora llamo la función real
     $.post(APP + "entrevista.php?id=lista", {fecha: valor}, function (data) {
         if ( data === 'Error') {
