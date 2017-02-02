@@ -32,6 +32,8 @@
  * (3) borrado .. para borrado de un caso
  */
 use function nuimsa\tools\conviertefecha;
+use function nuimsa\tools\testInput;
+
 use nuimsa\clases\Casonuevo;
 
 require_once ROOT . DS . 'tools/tools.php';
@@ -41,11 +43,11 @@ $cls1 = "w3-btn w3-wide w3-theme-d4 w3-half w3-w3-hover-theme w3-hover-theme:hov
 
 // puedo entrar con un POST o con un GET...
 // vengo de navbar ... entro con un GET
-if (count($_GET) > 0) { $modo = htmlentities($_GET['modo']); }
+if (count($_GET) > 0) { $modo = testInput($_GET['modo']); }
 // vengo de showCaso ... entro con un POST
 if (count($_POST) > 0 ) { 
-    $casoID = htmlentities($_POST['casoID']);
-    $modo = htmlentities($_POST['modo']);    
+    $casoID = testInput($_POST['casoID']);
+    $modo = testInput($_POST['modo']);    
 }
 
 switch ($modo) {

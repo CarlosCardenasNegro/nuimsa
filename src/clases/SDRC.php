@@ -62,7 +62,7 @@ class SDRC extends Base {
                     "muy_largo" => "Más de 1 año"
                 ),
             ),
-            "sensaciones" => array ("label" => "Sensaciones que experimenta el paciente", "type" => "etiqueta", "value" => "", "id" => "sensac"),                        
+            "sdrc_sensaciones" => array ("label" => "Sensaciones que experimenta el paciente", "type" => "etiqueta", "value" => "", "id" => "sensac"),                        
             "sdrc_dolor" => array ("label" => "Dolor contínuo y/o desproporcionado", "type" => "checkbox", "value" => "", "id" => "dol_con"),
             "temperatura" => array ("label" => "Aumento o disminución de la temperatura", "type" => "checkbox", "value" => "", "id" => "tem"),
             "color" => array ("label" => "Cambios en la coloración de la piel <i>-enrojecimiento, palidez,...-</i>", "type" => "checkbox", "value" => "", "id" => "col"),
