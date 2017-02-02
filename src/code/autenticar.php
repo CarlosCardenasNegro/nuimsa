@@ -53,8 +53,8 @@ if(!isset($_SERVER['PHP_AUTH_USER'])) {
             // 2. guardo los datos de session
             // 3. vuelvo a la página
             $userName = getUserName($user);
-            $date = new DateTime(NULL, new DateTimeZone('Europe/London'));
-            $resul = setValores("sessions", array ('user_id' => '1', 'created' => $date, 'modified' => $date));
+            //$date = new DateTime(NULL, new DateTimeZone('Europe/London'));
+            //$resul = setValores("sessions", array ('user_id' => '1', 'created' => $date->date, 'modified' => $date->date));
             $_SESSION['username'] = $userName;       
             echo "ok - $userName";
         } else {

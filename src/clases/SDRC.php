@@ -83,7 +83,7 @@ class SDRC extends Base {
         $this->_datos['campos']["motivo"]['value']       = "";
         $this->_datos['campos']["tiempo"]['value']       = "";
         $this->_datos['campos']["sdrc_evolucion"]['value']    = "";
-        $this->_datos['campos']["sensaciones"]['value']  = "";
+        $this->_datos['campos']["sdrc_sensaciones"]['value']  = "";
         $this->_datos['campos']["sdrc_dolor"]['value']        = "";
         $this->_datos['campos']["temperatura"]['value']  = "";
         $this->_datos['campos']["color"]['value']        = "";
@@ -114,20 +114,20 @@ class SDRC extends Base {
                 $this->_datos['campos']["motivo"]['value']       = $param[0];
                 $this->_datos['campos']["tiempo"]['value']       = $param[1];
                 $this->_datos['campos']["sdrc_evolucion"]['value']    = $param[2];
-                $this->_datos['campos']["sensaciones"]['value']  = $param[3];
+                $this->_datos['campos']["sdrc_sensaciones"]['value']  = $param[3];
                 break;
             case 5:
                 $this->_datos['campos']["motivo"]['value']       = $param[0];
                 $this->_datos['campos']["tiempo"]['value']       = $param[1];
                 $this->_datos['campos']["sdrc_evolucion"]['value']    = $param[2];
-                $this->_datos['campos']["sensaciones"]['value']  = $param[3];
+                $this->_datos['campos']["sdrc_sensaciones"]['value']  = $param[3];
                 $this->_datos['campos']["sdrc_dolor"]['value']        = $param[4];
                 break;
             case 6:
                 $this->_datos['campos']["motivo"]['value']       = $param[0];
                 $this->_datos['campos']["tiempo"]['value']       = $param[1];
                 $this->_datos['campos']["sdrc_evolucion"]['value']    = $param[2];
-                $this->_datos['campos']["sensaciones"]['value']  = $param[3];
+                $this->_datos['campos']["sdrc_sensaciones"]['value']  = $param[3];
                 $this->_datos['campos']["sdrc_dolor"]['value']        = $param[4];
                 $this->_datos['campos']["temperatura"]['value']  = $param[5];
                 break;
@@ -135,7 +135,7 @@ class SDRC extends Base {
                 $this->_datos['campos']["motivo"]['value']       = $param[0];
                 $this->_datos['campos']["tiempo"]['value']       = $param[1];
                 $this->_datos['campos']["sdrc_evolucion"]['value']    = $param[2];
-                $this->_datos['campos']["sensaciones"]['value']  = $param[3];
+                $this->_datos['campos']["sdrc_sensaciones"]['value']  = $param[3];
                 $this->_datos['campos']["sdrc_dolor"]['value']        = $param[4];
                 $this->_datos['campos']["temperatura"]['value']  = $param[5];
                 $this->_datos['campos']["color"]['value']        = $param[6];
@@ -144,7 +144,7 @@ class SDRC extends Base {
                 $this->_datos['campos']["motivo"]['value']       = $param[0];
                 $this->_datos['campos']["tiempo"]['value']       = $param[1];
                 $this->_datos['campos']["sdrc_evolucion"]['value']    = $param[2];
-                $this->_datos['campos']["sensaciones"]['value']  = $param[3];
+                $this->_datos['campos']["sdrc_sensaciones"]['value']  = $param[3];
                 $this->_datos['campos']["sdrc_dolor"]['value']        = $param[4];
                 $this->_datos['campos']["temperatura"]['value']  = $param[5];
                 $this->_datos['campos']["color"]['value']        = $param[6];
@@ -154,7 +154,7 @@ class SDRC extends Base {
                 $this->_datos['campos']["motivo"]['value']       = $param[0];
                 $this->_datos['campos']["tiempo"]['value']       = $param[1];
                 $this->_datos['campos']["sdrc_evolucion"]['value']    = $param[2];
-                $this->_datos['campos']["sensaciones"]['value']  = $param[3];
+                $this->_datos['campos']["sdrc_sensaciones"]['value']  = $param[3];
                 $this->_datos['campos']["sdrc_dolor"]['value']        = $param[4];
                 $this->_datos['campos']["temperatura"]['value']  = $param[5];
                 $this->_datos['campos']["color"]['value']        = $param[6];
@@ -165,7 +165,7 @@ class SDRC extends Base {
                 $this->_datos['campos']["motivo"]['value']       = $param[0];
                 $this->_datos['campos']["tiempo"]['value']       = $param[1];
                 $this->_datos['campos']["sdrc_evolucion"]['value']    = $param[2];
-                $this->_datos['campos']["sensaciones"]['value']  = $param[3];
+                $this->_datos['campos']["sdrc_sensaciones"]['value']  = $param[3];
                 $this->_datos['campos']["sdrc_dolor"]['value']        = $param[4];
                 $this->_datos['campos']["temperatura"]['value']  = $param[5];
                 $this->_datos['campos']["color"]['value']        = $param[6];
@@ -177,7 +177,7 @@ class SDRC extends Base {
                 $this->_datos['campos']["motivo"]['value']       = $param[0];
                 $this->_datos['campos']["tiempo"]['value']       = $param[1];
                 $this->_datos['campos']["evolucion"]['value']    = $param[2];
-                $this->_datos['campos']["sensaciones"]['value']  = $param[3];
+                $this->_datos['campos']["sdrc_sensaciones"]['value']  = $param[3];
                 $this->_datos['campos']["sdrc_dolor"]['value']        = $param[4];
                 $this->_datos['campos']["temperatura"]['value']  = $param[5];
                 $this->_datos['campos']["color"]['value']        = $param[6];
@@ -190,7 +190,7 @@ class SDRC extends Base {
                 $this->_datos['campos']["motivo"]['value']       = $param[0];
                 $this->_datos['campos']["tiempo"]['value']       = $param[1];
                 $this->_datos['campos']["sdrc_evolucion"]['value']    = $param[2];
-                $this->_datos['campos']["sensaciones"]['value']  = $param[3];
+                $this->_datos['campos']["sdrc_sensaciones"]['value']  = $param[3];
                 $this->_datos['campos']["sdrc_dolor"]['value']        = $param[4];
                 $this->_datos['campos']["temperatura"]['value']  = $param[5];
                 $this->_datos['campos']["color"]['value']        = $param[6];
@@ -204,7 +204,7 @@ class SDRC extends Base {
                 $this->_datos['campos']["motivo"]['value']       = $param[0];
                 $this->_datos['campos']["tiempo"]['value']       = $param[1];
                 $this->_datos['campos']["sdrc_evolucion"]['value']    = $param[2];
-                $this->_datos['campos']["sensaciones"]['value']  = $param[3];
+                $this->_datos['campos']["sdrc_sensaciones"]['value']  = $param[3];
                 $this->_datos['campos']["sdrc_dolor"]['value']        = $param[4];
                 $this->_datos['campos']["temperatura"]['value']  = $param[5];
                 $this->_datos['campos']["color"]['value']        = $param[6];

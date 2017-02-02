@@ -33,7 +33,7 @@ class Clinica extends Base {
  
  protected $_datos = array (
   "title" => "clinica",
-  "desc" => "Otra informacion clinica de interes para el caso:",
+  "desc" => "Otra informacion clinica de interes para el caso",
   "campos" => array
   (
    "clinica_info" => array ("label" => "Otros datos clínicos o antecedentes significativos o de interés a la hora de interpretar los hallazgos", "type" => "textarea", "value" => "", "id" => "cli_inf")

@@ -48,9 +48,15 @@ use nuimsa\clases\Evolucion_protesis;
 
 /**
  * Casos especiales en los que paso un POST como nombre de función (dispatching)
+ * puedo pasar parámetros como param=1,ejemplo,45.875867,otro ejemplo,etc,...
+ * los parámetros se pasarán como una string separados por comas
+ * luego los paso a un array param[]. OJO, seguirán siendo strings,...¡
  */
 if (isset($_POST['name'])) {
-     $name = $_POST['name'];
+     $name = testInput($_POST['name']);
+     if(isset($_POST['param'])) {
+         $param = explode(',', testInput($_POST['param'])); 
+     }
      
      switch ($name) {
          case 'sapID':
@@ -69,7 +75,49 @@ if (isset($_POST['name'])) {
                     echo $value['SAPid'];
                 }
             }         
-            break;         
+            break;
+            
+         case 'lookup':
+            // devuelve la palabra completa tras hacer
+            // un lookup con la tabla u525741712_lookup
+            $sql = "SELECT 'word_result' FROM `lookup` WHERE `word_original` LIKE :palabra";
+             
+            /**
+             * Set parameters according to Host (local o web server)
+             */
+            if ($_SERVER['HTTP_HOST'] === 'localhost') {
+                $servername = 'localhost';
+            } else {
+                $servername = 'mysql.hostinger.es';
+            }
+            $username = 'u525741712_quiz';
+            $password = 'XpUPQEthoAcKK5Y30b';    
+
+            try {
+                $conn = new \PDO("mysql:host=$servername;dbname=u525741712_lookup", $username, $password);
+                // set the PDO error mode to exception
+                $conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+
+                $slot = ':palabra';
+                $stmt = $conn->prepare($sql);
+                $stmt->bindParam($slot, $param[0]);
+                $stmt->execute();
+                // set the resulting array to associative
+                $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+                // recupero la palabra correcta
+                $correcta = $stmt->fetchAll();
+                // había..?
+                if (count($correcta) === 0) {
+                    echo 'Error';
+                } else {
+                    echo $correcta[0]['word_result'];
+                }
+                $conn = null;        
+            }
+            catch(\PDOException $e) {
+                echo "Error - Connection failed: " . $e->getMessage();
+            }
+            break;
      }
 }
 

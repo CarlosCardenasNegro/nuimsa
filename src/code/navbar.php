@@ -66,11 +66,11 @@ $auth = $user === 'Usuario invitado' ? false : true;
 
         <!-- menu inicio -->
         <?php if (!$auth): ?>    
-            <li  style="cursor:pointer">
+            <li  class="w3-pointer">
                 <img src="<?= $esculapio_ico ?>" width="40px" style="position:relative; top: 8px; left: 8px"/>
             </li>
         <?php else: ?>
-            <li class="w3-theme-d4">
+            <li class="w3-theme-d4 w3-pointer">
                 <a class="<?= $a_class ?>" onclick="cargaPag('inicio.php')" title ="<?= $inicioTXT; ?>">INICIO</a>
             </li>
         <?php endif ?>    
@@ -206,7 +206,7 @@ $auth = $user === 'Usuario invitado' ? false : true;
                    </div>
                 </li>
                 <!-- Menú: Chat -->
-                <li>
+                <li class="w3-pointer">
                     <a class="<?= $a_class ?>" onclick="chatting()" title ="<?= $chatTXT; ?>">CHAT</a>
                 </li>
             <?php endif ?>    
