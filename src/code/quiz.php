@@ -24,7 +24,7 @@
     require $CONFIG . 'paths.php';
 }
 
-use function nuimsa\tools\getUserName;
+//use function nuimsa\tools\getUserName;
 use function nuimsa\tools\getColor;
 use function nuimsa\tools\hex2rgba;
 
