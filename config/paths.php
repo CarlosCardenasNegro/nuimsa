@@ -29,8 +29,12 @@ define('ROOT', dirname(__DIR__));
 
 /**
  * The full path for use in HTML
+ * Al pasarlo a la web real
+ * nuimsa corresponde al directorio
+ * raiz... '/' lo he cambiado en cpanel
  */
-define('NUIMSA', '/nuimsa' . DS);
+//define('NUIMSA', '/nuimsa' . DS);
+define('NUIMSA', DS);
 
 /**
  * The actual directory name for the application directory. Normally
