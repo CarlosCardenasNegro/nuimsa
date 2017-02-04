@@ -29,7 +29,7 @@ use function nuimsa\tools\convierteFecha;
 use function nuimsa\tools\creaArray;
 use function nuimsa\tools\initClases;
 use function nuimsa\tools\buscaPacientes;
-use function nuimsa\tools\creaDocGeneral;
+//use function nuimsa\tools\creaDocGeneral;
 use function nuimsa\tools\borraPaciente;
 use function nuimsa\tools\clasesToXml;
 

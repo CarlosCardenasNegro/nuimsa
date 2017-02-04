@@ -26,6 +26,8 @@
 
 use function nuimsa\tools\getUserName;
 use function nuimsa\tools\hex2rgba;
+use function \nuimsa\tools\getColor;
+use function \nuimsa\tools\hex2rgba;
 
 require_once ROOT . DS . 'tools/tools.php';
 
@@ -146,8 +148,8 @@ try {
     $conn = null;
     
     // recupero el color "desvaido"...
-    $colorHex = \nuimsa\tools\getColor('css/colores/' . $_COOKIE['colores'], "w3-theme-d2");
-    $colorFin = \nuimsa\tools\hex2rgba($colorHex, '.8');
+    $colorHex = getColor('css/colores/' . $_COOKIE['colores'], "w3-theme-d2");
+    $colorFin = hex2rgba($colorHex, '.8');
     
     // salida a pantalla
     $salida .= '<div id="day" class="w3-row w3-dialog" style="background:' . $colorFin . '">';
