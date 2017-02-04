@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ci>
+    <title>Gammagrafía osteo-articular</title>
+    <shortdesc>Estudio del sitema Osteo-Articular con Tecnecio<sup>99m</sup>-HMDP.</shortdesc>    
+
+    <topic id="generalidades">
+        <title>Generalidades</title>
+        <shortdesc>Información general acerca de la exploración o prueba</shortdesc>
+        <body>
+            <p>Su médico le ha solicitado una prueba de medicina nuclear denominada Gammagrafía Ósea.</p>
+            <p>Esta prueba tiene como objetivo valorar el sistema esquelético y las articulaciones con el fin de saber si los trastornos que usted padece son debidos a alteraciones en el metabolismo y funcionalidad ósteoarticulares y su severidad.
+            </p>
+            <p>La gammagrafía ósea es una prueba de imagen que valora la función del órgano (en nuestro caso el sistema esquelético) a diferencia de otras técnicas radiológicas como la radiografía simple, la tomografía computarizada (CT) o la resonancia magnética (RM) que ofrecen, principalmente, información morfológica y anatómica.
+            </p>
+            <p>Este hecho hace que, en muchas ocasiones, la gammagrafía sea más sensible y precoz que las restantes técnicas. A pesar de ello, con frecuencia no es posible determinar la causa de los hallazgos, por lo que, no sustituye a las restantes técnicas de imagen. Por ello, no debe extrañarle si su médico ha solicitado, además de la gammagrafía, otras pruebas de imagen que, en su conjunto, ayudarán al correcto diagnóstico.
+            </p>
+        </body>
+    </topic>
+
+    <topic id="indicaciones">
+        <title>Indicaciones</title>
+        <shortdesc>Las indicaciones más habituales por las que le pueden haber solicitado una gammagrafía ósea son:</shortdesc>
+        <body>
+            <ol>
+                <li>Estudio de los trastornos osteoarticulares agudos que no responden como era esperado al tratamiento convencional.</li>
+                <dd>En ocasiones, tras sufrir una contusión o un traumatismo leve o moderado persisten las molestias a pesar de un correcto tratamiento y su médico puede querer saber si las molestias que persisten son pasajeras o si, por el contrario, existe alguna causa subyacente o no sospechada que explique la situación clínica. La gammagrafía ósea, en estos casos, puede ofrecer pistas para conocer el porqué de los síntomas.</dd>
+                <li>Valoración de los retrasos en la consolidación de las fracturas.</li>
+                <dd>Cuando un fractura no evoluciona como era de esperar, a pesar de su correcto tratamiento, la gammagrafía  ósea puede confirmar si la evolución es la correcta -aun cuando persistan ciertos síntomas- o si, por el contrario, la fractura muestra signos de retraso en su recuperación. Asi mismo, en ocasiones, puede ofrecer información sobre si la causa de dicho retraso puede ser un proceso infeccioso óseo sobreañadido.</dd>
+                <li>Valoración de la severidad y extensión de los procesos articulares degenerativos.</li>
+                <dd>La osteoartrosis debida al normal envejecimiento de huesos y articulaciones puede, en ocasiones, presentarse en edades más tempranas, ya sea, por predisposición familiar o por ciertas condiciones del modo de vida que la aceleran (tipo de trabajo, etc...). En estas ocasiones la gammagrafía puede determinar con exactitud, las articulaciones afectas y, hasta cierto punto, su grado de afectación y si existe inflamación sobreañadida o los trastornos pueden considerarse de carácter crónico.</dd>
+                <li>Estudio de los procesos reumáticos de base inflamatoria.</li>
+                <dd>Las artritis o enfermedades del sistema osteoarticular que condicionan inflamación y, en ocasiones, daño articular severo, pueden, en ocasiones y en fases iniciales, ser de difícil diagnóstico. En estos casos su médico puede querer conocer si las molestias articulares que usted padece pudieran ser debidas a este tipo de procesos, ya que, la gammagrafía puede demostrar la presencia de inflamación articular -sinovitis- de forma precoz y de una forma global en todo el organismo</dd>
+            </ol>
+        </body>
+    </topic>
+
+    <topic id="metodo">
+        <title>En que consiste la prueba</title>
+        <body>
+            <p>Para hacer esta prueba es necesario inyectarle un radiofármaco, denominado, Indio-111-DTPA.</p>
+            <section>
+                <title>Información</title>
+                <p>Los radiofármacos son medicamentos usados con finalidad diagnóstica y sin efecto terapéutico. Contienen un producto emisor de radiación ionizante -en este caso el Indio-111- por lo que al inyectárselo va a recibir una pequeña dosis de radiación. Esta dosis de radiación es muy pequeña y no se ha demostrado ningún efecto perjudicial para su salud o para la de su descendencia.
+                </p>
+            </section>
+            <p>El radiofármaco se debe inyectar mediante una punción lumbar (PL).</p>
+            <p>La PL es una inyección a través de los espacios que existen entre las vértebras lumbares –generalmente la cuarta o la quinta-. Para realizarla le pediremos que se acueste sobre un lado y adopte una postura “fetal”, es decir, aproximando, lo más posible, la barbilla a las rodillas. De esta forma los espacios intervertebrales se hacen mayores facilitando la introducción de la aguja. <br/>Aun cuando, el procedimiento no es especialmente doloroso en ocasiones puede administrarse un anestésico local en la zona de la inyección. En este caso es absolutamente imprescindible que nos informe si en alguna ocasión anterior ha sufrido algún tipo de reacción alérgica a los anestésicos locales (por ejemplo, en el dentista, al ponerle puntos de sutura o a raíz de cualquier otra intervención).Tras la PL le dejaremos entre 10 y 20 minutos recostado ya que, en ocasiones, una movilización demasiado precoz puede desencadenar dolor de cabeza en las horas posteriores.
+                <fig>
+                    <img href="./img/pl.jpeg" width="256" /> 
+                </fig>            
+            </p>
+            <section>
+                <title>Advertencia</title>
+                <p>La PL está contraindicada en situaciones de presión elevada del LCR, en trastornos de la coagulación (pacientes tomando anticoagulantes por otros motivos), en infección de la piel en la zona de inyección o cuando hay una severa deformidad vertebral.
+                </p>
+            </section>
+        </body>
+    </topic>
+            
+    <topic id="contraindicaciones">
+        <title>Contraindicaciones</title>
+        <body>
+            <p>No se conocen contraindicaciones específicas al producto radiofarmaceútico.</p>
+            <section>
+                <title>Interacciones</title>
+                <p>No se conocen contraindicaciones específicas al producto radiofarmaceútico.</p>
+            </section>
+            <section>
+                <title>Efectos sobre la capacidad de conducción</title>
+                <p>Un estudio con Indio-111-DTPA no afecta a la capacidad de conducción y de utilizar maquinaria pesada.</p>
+            </section>
+        </body>
+    </topic>
+
+    <topic id="embarazo y lactancia">
+        <title>Embarazo y lactancia</title>
+        <body>
+            <section>
+                <title>Advertencia</title>
+                <p>Si usted es mujer deberá conocer además, que el uso de radiaciones ionizantes con fines médicos está contraindicado en el embarazo por el riesgo de dañar al feto, así que ES NECESARIO QUE USTED ESTÉ SEGURA DE QUE EN EL MOMENTO DE REALIZARSE LA EXPLORACIÓN NO ESTÁ EMBARAZADA.
+                </p>
+            </section>
+            <p>En caso de que tenga dudas sobre ello, le agradeceríamos que comprenda que la prueba ha de ser retrasada hasta que usted esté completamente segura de no estar embarazada. Durante el embarazo no se realizará la prueba salvo en casos excepcionales.
+            </p>
+            <section>
+                <title>Advertencia</title>
+                <p>Se desconoce si este radiofármaco es excretada en la lecha humana. Aun así, SI USTED ESTÁ AMAMANTANDO A SU HIJO le agradecemos nos lo comunique pues deberemos retrasar la exploración hasta que haya terminado el periodo de lactancia. Si esto no fuera posible, sería necesaria la suspensión de la lactancia materna.
+                </p>
+            </section>
+        </body>
+    </topic>
+
+    <topic id="otras recomendaciones">
+        <title>Otras recomendaciones</title>
+        <body>
+            <p>No debe venir al servicio acompañado de niños y mujeres embarazadas.</p>
+            <p>Durante la realización de la prueba y mientras espera le agradecemos no utilice la sala de espera común pudiendo abandonar el hospital y pasear o sentarse en el exterior. Al volver hágalo saber a la Administrativa de recepción y la pasaremos inmediatamente. Si debe esperar un poco en la sala de espera general procure sentarse en un lugar alejado del resto de las personas que allí están.
+            </p>
+            <section>
+                <title>Precauciones especiales que usted debe conocer</title>
+                <p>Dada la mínima radiación que se elimina al exterior después de acabar el estudio no será necesario que tome ninguna precaución especial con las personas que le rodean y con sus familiares.
+                </p>
+            </section>
+        </body>
+    </topic>
+
+    <topic id="reacciones adversas">
+        <title>Reacciones adversas</title>
+        <body>
+            <p>Las reacciones adversas atribuibles a la administración de Indio-111-DTPA son poco corrientes.</p>
+            <p>La PL puede provocar efectos secundarios generalmente de tipo leve, tales como, dolor de cabeza y signos de irritación meníngea. Por regla general desparecen en 48 horas. Se ha informado de casos de meningitis aséptica y fiebre.
+            </p>
+            <section>
+                <title>Advertencia</title>
+                <p>En general, la exposición a las radiaciones ionizantes está asociada a la inducción de cáncer y a la posibilidad potencial de desarrollar defectos hereditarios.<br/>Para las investigaciones de medicina nuclear diagnóstica, la evidencia actual sugiere que estos efectos adversos ocurren con una frecuencia baja -inferior a su aparición espontánea en la población general- debido a las bajas dosis de radiación administradas.
+                </p>
+            </section>
+        </body>
+    </topic>
+    
+    <topic id="farmacodinámica y farmacocinética">
+        <title>Farmacodinámica y farmacocinética</title>
+        <body>
+            <p>Después de su administración intratecal en la región lumbar, el radiofármaco es absorvido desde el espacio subaracnoideo y fluye ascendiendo hacia el cráneo.<br/>A lo largo de las primeras 2 á 4 horas se acumula en su parte inferior -cisternas basales- y, posteriormente, sigue ascendiendo observándose en la cisterna Silviana, en las cisternas interhemisféricas y, finalmente, alcanza la convexidad cerebral.</p>
+            <p>En individuos normales, el radiofármaco debe haber ascendido hacia las regiones parasagitales dentro de las 24 horas con aclaramiento simultáneo completo o parcial de las cisternas basales y/o Silviana. Normalmente no se debe observar actividad en los ventrículos cerebrales.</p>
+            <p>La absorción del LCR (y en nuestro caso, el radiofármaco) se produce en su mayor parte en la convexidad cerebral en las llamadas vellosidades aracnoideas, sin embargo, hay evidencias de que una pequeña porción se absorve a través de las leptomeninges espinales y cerebrales. Estas rutas de absorción asumen una mayor importancia cuando las rutas mayores están patologicamente obstruidas.</p>
+        </body>
+    </topic>
+        
+    <topic id="dosimetría de la radiación">
+        <title>Dosimetría de la radiación</title>
+        <body>
+            <p>La dosis de radiación (dosis equivalente efectiva) que, por término medio, provoca una gammagrafía ósea con Indio-111-DTPA en un adulto de peso medio (70 Kg.) es de 2,6 mSv por dosis administrada de 18,5 MBq. Valores ligeramente superiores ocurrirán si la función renal está alterada.
+            </p>
+            <section>
+                <title>Dosis de radiación absorbida</title>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Órgano</th>
+                            <th/>
+                            <th>mGy/18,5 MBq</th>
+                            <th>rads/15 MBq</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Organismo completo</td>
+                            <td/>
+                            <td>0,41</td>
+                            <td>0,041</td>
+                        </tr>
+                        <tr>
+                            <td>Riñones</td>
+                            <td/>
+                            <td>2,2</td>
+                            <td>0,22</td>
+                        </tr>
+                        <tr>
+                            <td>Médula espinal</td>
+                        </tr> 
+                        <tr>
+                            <td/>
+                            <td>Superficie</td>
+                            <td>50,0</td>
+                            <td>5,0</td>
+                        </tr>
+                        <tr>
+                            <td/>
+                            <td>Valor medio</td>
+                            <td>15,0</td>
+                            <td>1,5</td>
+                        </tr>
+                        <tr>
+                            <td>Tejido cerebral</td>
+                        </tr>
+                        <tr>
+                            <td/>
+                            <td>Superficie</td>
+                            <td>41,0</td>
+                            <td>4,1</td>
+                        </tr>
+                        <tr>
+                            <td/>
+                            <td>Valor medio</td>
+                            <td>4,0</td>
+                            <td>0,4</td>
+                        </tr>
+                        <tr>
+                            <td>Vejiga urinaria</td>
+                        </tr>
+                        <tr>
+                            <td/>
+                            <td>con micción a las 2 horas</td>
+                            <td>0,4</td>
+                            <td>0,04</td>
+                        </tr>
+                        <tr>
+                            <td/>
+                            <td>con micción a las 4,8 horas</td>
+                            <td>5,0</td>
+                            <td>0,5</td>
+                        </tr>
+                        <tr>
+                            <td>Testículos</td>
+                        </tr>
+                        <tr>
+                            <td/>
+                            <td>con micción a las 2 horas</td>
+                            <td>0,4</td>
+                            <td>0,04</td>
+                        </tr>
+                        <tr>
+                            <td/>
+                            <td>con micción a las 4,8 horas</td>
+                            <td>0,5</td>
+                            <td>0,05</td>
+                        </tr>
+                        <tr>
+                            <td>Ovarios</td>
+                        </tr>
+                        <tr>
+                            <td/>
+                            <td>con micción a las 2 horas</td>
+                            <td>0,6</td>
+                            <td>0,06</td>
+                        </tr>
+                        <tr>
+                            <td/>
+                            <td>con micción a las 4,8 horas</td>
+                            <td>0,6</td>
+                            <td>0,06</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </body>
+    </topic>                
+</ci>
+    

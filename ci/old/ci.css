@@ -1,0 +1,37 @@
+/**
+ * ci.css - Hoja de estilo para los consentimientos
+ * informados.
+ */
+.w3-open-sans { font-family: "Open Sans", serif }
+.w3-open-sans-light { font-family: "Open Sans", serif; letter-spacing: 1.8px }
+.w3-lato  { font-family: "Lato", serif; letter-spacing: 1.5px }
+
+.w3-container { padding: 10px 30px }
+
+.headroom {will-change: transform; transition: transform 200ms linear }
+.headroom--pinned { transform: translateY(0%) }
+.headroom--unpinned { transform: translateY(-100%) }
+.headroom--top  { color: rgb(255,255,255) }
+.headroom--not-top  { opacity: .95 }
+
+p { padding: 5px 5px; color: #717171 }
+section { height: 650px; overflow: auto; margin-bottom: 10px }
+article { position: absolute; top: 200px }
+.clearfix { overflow: auto }
+
+table { width: 70%; margin: auto }
+td:nth-child(1) { color: green; font-weight: 400;}
+td:nth-child(3) { text-align: center; color: blue}
+td:nth-child(4) { text-align: center; color: red}
+
+th:nth-child(3) { text-align: center; }
+th:nth-child(4) { text-align: center; }
+
+.corta { width: 1%;}
+
+.page {  margin: 10px; transition: box-shadow 0.3s }
+.page:hover { box-shadow: 4px 4px 8px rgba(0,0,0,.5) }
+.pagination { position: relative; top: 237px }
+
+[id*=sec] { display: none}
+[id=sec1] { display: block }
