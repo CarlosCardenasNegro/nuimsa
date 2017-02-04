@@ -26,8 +26,8 @@
 
 use function nuimsa\tools\getUserName;
 use function nuimsa\tools\hex2rgba;
-use function \nuimsa\tools\getColor;
-use function \nuimsa\tools\hex2rgba;
+use function nuimsa\tools\getColor;
+use function nuimsa\tools\hex2rgba;
 
 require_once ROOT . DS . 'tools/tools.php';
 
