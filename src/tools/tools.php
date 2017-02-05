@@ -712,7 +712,7 @@ function natural_lp($cadena) {
     $items = explode(' ', $cadena);
     
     // recupero el diccionario...
-    $dict = getValores1('u525741712_lookup', 'lookup', 'word_original, word_result');
+    $dict = getValores1('u525741712_quiz', 'lookup', 'word_original, word_result');
     // creo los arrays
     // voy a usar preg_replace..??
     foreach ($dict as $value) {
