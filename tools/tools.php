@@ -51,6 +51,7 @@ use nuimsa\clases\Evolucion_protesis;
  * puedo pasar parámetros como param=1,ejemplo,45.875867,otro ejemplo,etc,...
  * los parámetros se pasarán como una string separados por comas
  * luego los paso a un array param[]. OJO, seguirán siendo strings,...¡
+ * es mi responsabilidad pasarlos a su valor esperado antes de su uso..¡¡
  */
 if (isset($_POST['name'])) {
      $name = testInput($_POST['name']);
@@ -118,6 +119,10 @@ if (isset($_POST['name'])) {
                 echo "Error - Connection failed: " . $e->getMessage();
             }
             break;
+            
+         case 'nlp':
+            echo nlp($param[0]);
+            break;
      }
 }
 
@@ -132,10 +137,11 @@ if (isset($_POST['name'])) {
  * tienen porque ser correlativas pues si borramos una no se recupera
  * su id y se saltan valores,...
  *
+ * @param string $database Database en la que se encuentra la tabla
  * @param string $tabla Nombre de la Tabla donde se encuentran los valores
  * @param string $campo Nombre del campo a recuperar
  */
-function getValores1($tabla, $campo) {
+function getValores1($database, $tabla, $campo) {
         
     $sql = "select $campo FROM $tabla";
     
@@ -151,12 +157,12 @@ function getValores1($tabla, $campo) {
     $password = 'XpUPQEthoAcKK5Y30b';    
     
     try {
-        $conn = new \PDO("mysql:host=$servername;dbname=u525741712_quiz", $username, $password);
+        $conn = new \PDO("mysql:host=$servername;dbname=$database", $username, $password);
         // set the PDO error mode to exception
         $conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         
         foreach ($conn->query($sql) as $row) {
-            $result[] = $row[0];                
+            $result[] = $row;                
         }
         return $result;
         $conn = null;        
@@ -705,7 +711,7 @@ function getUserName($user) {
  * @param $frase string Frase a convertir.
  * @return $res string Frase convertida. 
  */
-function ConvierteMinusculas($frase) {
+function convierteMinusculas($frase) {
     if (empty($frase)) { return; }
     if (strlen($frase) == 1) { return $frase; }    
     
@@ -718,10 +724,14 @@ function ConvierteMinusculas($frase) {
             // la paso a minúsculas y le añado
             // un punto al final
             $cadena = strtolower($cadena) . '.';
+            // NLP de la cadena
+            nlp($cadena);
             break;
         case 1:
             // hay al menos un punto final
             $cadena = strtolower($cadena);
+            // NLP de la cadena
+            nlp($cadena);
             break;
         default:
             // hay dos o más puntos
@@ -733,4 +743,26 @@ function ConvierteMinusculas($frase) {
             }
     }
     return trim($res);
+}
+
+/**
+ * Paso una frase completa de texto
+ * analizada palabra por palabra
+ * no se si será demasiado..¡¡???
+ * 
+ * @param string $cadena Frase pasada por referencia a analizar.
+ */
+function nlp($cadena) {
+
+    $items = explode(' ', $cadena);
+    
+    // recupero el diccionario...
+    $dict = getValores1('u525741712_lookup', 'lookup', 'word_original, word_result');
+    // creo los arrays
+    foreach ($dict as $value) {
+        $buscado[] = $value[0];
+        $cambiado[] = $value[1];
+    }
+    // reemplazo
+    return str_replace($buscado, $cambiado, $cadena);
 }

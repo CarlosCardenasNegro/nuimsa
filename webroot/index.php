@@ -15,6 +15,7 @@
  * @version     2.0
  */
 use function nuimsa\tools\getUserName;
+use function nuimsa\tools\testInput;
 
 require_once ROOT . DS . 'tools/tools.php';
 
@@ -43,7 +44,14 @@ $headroom   = NUIMSA . "recursos/headroom/headroom.js";
 // excepto, las fuentes de Google que no pueden cargarse desde local,... es lo único...
 $googleFonts = 'https://fonts.googleapis.com/css?family=Open+Sans:300|Lato:100';
 // codigo propio
-$color      = isset($_COOKIE['colores']) ?  $_COOKIE['colores'] : 'red.css';
+if (isset($_COOKIE['colores'])) {
+    $color = testInput($_COOKIE['colores']);
+} else {
+    setcookie('colores', 'red.css', time()+(365*24*60*60));
+    $color =  'red.css';
+}
+//$color      = isset($_COOKIE['colores']) ?  $_COOKIE['colores'] : 'red.css';
+
 $color      = NUIMSA  . 'webroot/css/colores/' . $color; 
 $carrousel  = NUIMSA  . 'webroot/css/carrousel.css';
 $main_css   = NUIMSA  . 'webroot/css/main.css';

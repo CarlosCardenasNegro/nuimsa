@@ -41,11 +41,14 @@ const DS = '/';
  * location.search devuelve "?XDEBUG_SESSION_START=netbeans-xdebug".
  * Por ello debemos de adelantarnos para evitar errores en el debugging
  */ 
-const ROOT = (location.search).substr(0, 7) === "?XDEBUG" ? '/nuimsa/' : location.pathname;
+const ROOT = (location.search).substr(0, 7) === "?XDEBUG" ? '/' : location.pathname;
 /* The actual directory name for the application directory. Normally named 'src'. */
 const APP_DIR = 'src/code';
 /* Path to the application's directory. */
 const APP = ROOT + APP_DIR + DS;
+/* Path to the Tools directory */
+const TOOLS_DIR = 'tools';
+const TOOLS = ROOT + TOOLS_DIR + DS;
 
 /**
  * carga de funciones iniciales y
@@ -850,12 +853,20 @@ function convierteMinusculas(campo) {
             $inicial = $value.substr(0, 1).toUpperCase();
             $resto = $value.substr(1, $value.length - 1).toLowerCase();
             $res += $inicial + $resto + '.';
+            // nlp para las palabras de la cadena
+            $.post(TOOLS + 'tools.php', {'name': 'nlp', 'param': $res}).done( function (data) {
+                $res = data;
+            });
             break;
         case 1:
             // hay al menos un punto final igual
             $inicial = $value.substr(0, 1).toUpperCase();
             $resto = $value.substr(1, $value.length - 1).toLowerCase();
             $res += $inicial + $resto + '.';
+            // nlp para las palabras de la cadena
+            $.post(TOOLS + 'tools.php', {'name': 'nlp', 'param': $res}).done( function (data) {
+                $res = data;
+            });
             break;
         default:
             // hay dos o más puntos (ojo un punto solo genera una cadena vacía, ej. puntos suspensivos ...)
