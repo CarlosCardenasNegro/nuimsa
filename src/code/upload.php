@@ -1,4 +1,4 @@
-<?php
++<?php
 /**
  * NMT: The Nuclear Medicine Toolkit(tm) (http://www.nuimsa.es)
  * Copywright (c) San Miguel Software, Sl. (http://www.sanmiguelsoftware.com)
@@ -33,6 +33,9 @@ use function nuimsa\tools\clasesToXml;
     $CONFIG = $_SESSION['CONFIG'];
     require $CONFIG . 'paths.php';
 }
+
+use nuimsa\tools\nlp;
+use nuimsa\tools\testInput;
 
 require_once ROOT . DS . 'tools/tools.php';
  
@@ -109,7 +112,35 @@ if (!$pass_get and !$pass_post and !$pass_files) {
          break;
      
      case 'procesado':
-         // formulario de entrevista clínica básica
+        /**
+         * Antes de guardar el formulario
+         * voy a analizar el texto contenido
+         * en los campos tipo TEXTAREA.
+         * Los posibles campos son 11:
+         * - orden
+         * - otras
+         * - precipitado
+         * - loc_anatomica
+         * - loc_region
+         * - desde_otra
+         * - motivo_info
+         * - clinica_info
+         * - observaciones
+         * - desde_otra_d
+         * - desde_otra_i
+         */
+        $campos = array('orden', 'otras', 'precipitado', 'loc_anatomica',
+            'loc_region', 'desde_otra', 'motivo_info', 'clinica_info',
+            'observaciones', 'desde_otra_d', 'desde_otra_i');
+        foreach ($campos as $value) {
+            if (!empty($_POST[$value])) {
+                $valor = testInput($_POST[$value]);
+                $temp = nlp($valor);
+                $_POST[$value] = $temp;
+            }
+        } 
+        
+        // formulario de entrevista clínica básica
         // para uso de las rutinas de borrado
         // y busqueda
         $ini = testInput($_POST["iniciales"]);

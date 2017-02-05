@@ -854,9 +854,11 @@ function convierteMinusculas(campo) {
             $resto = $value.substr(1, $value.length - 1).toLowerCase();
             $res += $inicial + $resto + '.';
             // nlp para las palabras de la cadena
+            /* Temporalmente deshabilitado
             $.post(TOOLS + 'tools.php', {'name': 'nlp', 'param': $res}).done( function (data) {
                 $res = data;
             });
+            */
             break;
         case 1:
             // hay al menos un punto final igual
@@ -864,9 +866,11 @@ function convierteMinusculas(campo) {
             $resto = $value.substr(1, $value.length - 1).toLowerCase();
             $res += $inicial + $resto + '.';
             // nlp para las palabras de la cadena
+            /* Temporalmente deshabilitado
             $.post(TOOLS + 'tools.php', {'name': 'nlp', 'param': $res}).done( function (data) {
                 $res = data;
             });
+            */
             break;
         default:
             // hay dos o más puntos (ojo un punto solo genera una cadena vacía, ej. puntos suspensivos ...)
