@@ -27,7 +27,7 @@
 use Gregwar\Image\Image;
 use function nuimsa\tools\testInput;
  
-require_once ROOT . DS . 'tools/tools.php';
+require_once ROOT . DS . 'src/tools/tools.php';
 
 /**
  * Procesa los datos par un caso Quiz nuevo:

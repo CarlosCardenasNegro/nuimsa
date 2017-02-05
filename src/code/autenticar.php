@@ -29,7 +29,7 @@ use function nuimsa\tools\getUserName;
 use function nuimsa\tools\setValores;
 use function nuimsa\tools\testInput;
 
-require_once ROOT . DS . 'tools/tools.php';
+require_once ROOT . DS . 'src/tools/tools.php';
 
 /**
  * Autentica.php - Basic Autentificación para acceso a profesionales.

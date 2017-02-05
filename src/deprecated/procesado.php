@@ -33,7 +33,7 @@ use function nuimsa\tools\buscaPacientes;
 use function nuimsa\tools\borraPaciente;
 use function nuimsa\tools\clasesToXml;
 
-require_once ROOT . DS . 'tools/tools.php';
+require_once ROOT . DS . 'src/tools/tools.php';
 
 // variables pasadas en el POST...
 $varPost = count($_POST);

@@ -28,7 +28,7 @@ if (!isset($_SESSION)) {
 
 use function nuimsa\tools\testInput;
 
-require_once ROOT . DS . 'tools/tools.php';
+require_once ROOT . DS . 'src/tools/tools.php';
 
 /**
  * Recupera el listado de casos de interés y demás

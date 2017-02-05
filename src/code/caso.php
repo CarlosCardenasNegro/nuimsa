@@ -36,7 +36,7 @@ use function nuimsa\tools\testInput;
 
 use nuimsa\clases\Casonuevo;
 
-require_once ROOT . DS . 'tools/tools.php';
+require_once ROOT . DS . 'src/tools/tools.php';
 
 $cls = "w3-btn w3-wide w3-theme-d1 w3-half w3-w3-hover-theme w3-hover-theme:hover w3-margin-bottom";
 $cls1 = "w3-btn w3-wide w3-theme-d4 w3-half w3-w3-hover-theme w3-hover-theme:hover w3-margin-bottom";

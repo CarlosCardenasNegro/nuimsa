@@ -37,7 +37,7 @@ use function nuimsa\tools\clasesToXml;
 use nuimsa\tools\nlp;
 use nuimsa\tools\testInput;
 
-require_once ROOT . DS . 'tools/tools.php';
+require_once ROOT . DS . 'src/tools/tools.php';
  
 $data = array();
 $pass_get = false;

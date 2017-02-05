@@ -32,7 +32,7 @@ use function nuimsa\tools\muestraListado;
 use function nuimsa\tools\convierteFecha;
 use function nuimsa\tools\buscaPacientes;
 
-require_once ROOT . DS . 'tools/tools.php';
+require_once ROOT . DS . 'src/tools/tools.php';
 
 /**
  * Entrevista.php - Formulario de entrevista al paciente.

@@ -28,7 +28,7 @@
 use function nuimsa\tools\getColor;
 use function nuimsa\tools\hex2rgba;
 
-require_once ROOT . DS . 'tools/tools.php';
+require_once ROOT . DS . 'src/tools/tools.php';
 
 /**
  * quiz.php - recupera el caso seleccionado y lo muestra

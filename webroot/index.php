@@ -17,7 +17,7 @@
 use function nuimsa\tools\getUserName;
 use function nuimsa\tools\testInput;
 
-require_once ROOT . DS . 'tools/tools.php';
+require_once ROOT . DS . 'src/tools/tools.php';
 
 /**
  * Index.php - Script principal que lanza el resto de la aplicación.
