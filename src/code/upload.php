@@ -163,14 +163,14 @@ if (!$pass_get and !$pass_post and !$pass_files) {
             // no está sigo alegremente...
             clasesToXml($xmlDoc, $classArray);
             // si todo ha ido bien contesto...
-            $return = "Exito<p class='w3-center'>Los datos para \"" . $ini . "\" fueron guardados correctamente.</p>"; 
+            $return = "<p class='w3-center'>Los datos para \"" . $ini . "\" fueron guardados correctamente.</p>"; 
         } else {
             // ya estaba en el archivo debo eliminar el registro y re-añadirlo
             borraPaciente($found);
             // ahora debo guardar la modificación
             clasesToXml($xmlDoc, $classArray);
             // si todo ha ido bien contesto...
-            $return = "Exito<p class='w3-center'>Los datos para \"" . $ini . "\" fueron modificados correctamente.</p>";
+            $return = "<p class='w3-center'>Los datos para \"" . $ini . "\" fueron modificados correctamente.</p>";
         }
         break;
 }

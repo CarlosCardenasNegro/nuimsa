@@ -714,12 +714,14 @@ function natural_lp($cadena) {
     // recupero el diccionario...
     $dict = getValores1('u525741712_lookup', 'lookup', 'word_original, word_result');
     // creo los arrays
+    // voy a usar preg_replace..??
     foreach ($dict as $value) {
-        $item_buscado[] = $value[0];
+        $item_buscado[] = '/\b' . $value[0] . '\b/ui';
         $item_cambiado[] = $value[1];
     }
     // reemplazo
-    return str_ireplace($item_buscado, $item_cambiado, $cadena);
+    $temp = preg_replace($item_buscado, $item_cambiado, $cadena);
+    return $temp;
 }
 
 /**
