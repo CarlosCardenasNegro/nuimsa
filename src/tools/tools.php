@@ -119,10 +119,6 @@ if (isset($_POST['name'])) {
                 echo "Error - Connection failed: " . $e->getMessage();
             }
             break;
-            
-         case 'nlp':
-            echo nlp($param[0]);
-            break;
      }
 }
 
@@ -705,6 +701,28 @@ function getUserName($user) {
 }
 
 /**
+ * Paso una frase completa de texto
+ * analizada palabra por palabra
+ * no se si será demasiado..¡¡???
+ * 
+ * @param string $cadena Frase pasada por referencia a analizar.
+ */
+function natural_lp($cadena) {
+
+    $items = explode(' ', $cadena);
+    
+    // recupero el diccionario...
+    $dict = getValores1('u525741712_lookup', 'lookup', 'word_original, word_result');
+    // creo los arrays
+    foreach ($dict as $value) {
+        $item_buscado[] = $value[0];
+        $item_cambiado[] = $value[1];
+    }
+    // reemplazo
+    return str_ireplace($item_buscado, $item_cambiado, $cadena);
+}
+
+/**
  * Convierte el texto pasado a minúsculas
  * respetando la mayúscula inicial tras un punto y seguido
  *
@@ -739,26 +757,4 @@ function convierteMinusculas($frase) {
             }
     }
     return trim($res);
-}
-
-/**
- * Paso una frase completa de texto
- * analizada palabra por palabra
- * no se si será demasiado..¡¡???
- * 
- * @param string $cadena Frase pasada por referencia a analizar.
- */
-function nlp($cadena) {
-
-    $items = explode(' ', $cadena);
-    
-    // recupero el diccionario...
-    $dict = getValores1('u525741712_lookup', 'lookup', 'word_original, word_result');
-    // creo los arrays
-    foreach ($dict as $value) {
-        $item_buscado[] = $value[0];
-        $item_cambiado[] = $value[1];
-    }
-    // reemplazo
-    return str_replace($item_buscado, $item_cambiado, $cadena);
 }

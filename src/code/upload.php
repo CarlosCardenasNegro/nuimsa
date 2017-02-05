@@ -24,6 +24,7 @@ use function nuimsa\tools\initClases;
 use function nuimsa\tools\buscaPacientes;
 use function nuimsa\tools\borraPaciente;
 use function nuimsa\tools\clasesToXml;
+use function nuimsa\tools\natural_lp;
 
 /**
  * Load constants...
@@ -33,9 +34,6 @@ use function nuimsa\tools\clasesToXml;
     $CONFIG = $_SESSION['CONFIG'];
     require $CONFIG . 'paths.php';
 }
-
-use nuimsa\tools\nlp;
-use nuimsa\tools\testInput;
 
 require_once ROOT . DS . 'src/tools/tools.php';
  
@@ -134,9 +132,7 @@ if (!$pass_get and !$pass_post and !$pass_files) {
             'observaciones', 'desde_otra_d', 'desde_otra_i');
         foreach ($campos as $value) {
             if (!empty($_POST[$value])) {
-                $valor = testInput($_POST[$value]);
-                $temp = nlp($valor);
-                $_POST[$value] = $temp;
+                $_POST[$value] = natural_lp(testInput($_POST[$value]));
             }
         } 
         

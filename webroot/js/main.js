@@ -39,7 +39,7 @@ const DS = '/';
  * OJO, cuando se ejecuta desde el debugger
  * location.pathname devuelve "/nuimsa/index.php" y
  * location.search devuelve "?XDEBUG_SESSION_START=netbeans-xdebug".
- * Por ello debemos de adelantarnos para evitar errores en el debugging
+ * Por ello debemos de adelantarnos para evitar error es en el debugging
  */ 
 const ROOT = (location.search).substr(0, 7) === "?XDEBUG" ? '/' : location.pathname;
 /* The actual directory name for the application directory. Normally named 'src'. */
@@ -47,7 +47,7 @@ const APP_DIR = 'src/code';
 /* Path to the application's directory. */
 const APP = ROOT + APP_DIR + DS;
 /* Path to the Tools directory */
-const TOOLS_DIR = 'tools';
+const TOOLS_DIR = 'src/tools';
 const TOOLS = ROOT + TOOLS_DIR + DS;
 
 /**
@@ -85,9 +85,9 @@ function test(datos) {
             contentType: false,
             success: function (result) {
                 if (result.substr(0, 5) === "Error") {
-                    displayMensaje('ggbb5566', 'Error!', '', result.substr(6, result.length));                
+                    displayMensaje('ggbb5566', 'Error', '', result.substr(6, result.length));                
                 } else {
-                    displayMensaje('ggbb5566', 'Exito!', '', result);                
+                    displayMensaje('ggbb5566', 'Exito', '', result);                
                 }
             // volvemos a inicio
             cargaPag('inicio.php');
@@ -108,7 +108,7 @@ function accesoProfesionales() {
             cargaPag('inicio.php');
         } else {
             $mensaje = '<p class="w3-center">El nombre de usuario o la clave son incorrectos.</p>';
-            displayMensaje('bv001', 'Error!', '', $mensaje, {'width':'50%'});
+            displayMensaje('bv001', 'Error', '', $mensaje, {'width':'50%'});
        }
     });
 }
@@ -164,7 +164,7 @@ function cargaInfo( filename ) {
     $.post(APP + 'readinfo.php', {'ci': filename}).done ( function (data) {
         if (data.substr(0, 5) === "Error") {    
             $mensaje = '<p class="w3-center">El archivo de información solicitado no existe o es incorrecto.</p>';
-            displayMensaje('bv003', 'Error!', '', $mensaje, {'width':'70%'}, 'timer');
+            displayMensaje('bv003', 'Error', '', $mensaje, {'width':'70%'}, 'timer');
         } else {
             $( '#cuerpo' ).html(data);
         }
@@ -191,7 +191,7 @@ function sendData() {
         processData: false,
         contentType: false,
         success: function(responseText) {
-            displayMensaje('up002', 'Exito!', '',responseText,'','timer');      
+            displayMensaje('up002', 'Exito', '',responseText,'','timer');      
             cargaPag('inicio.php');
         }
     });
@@ -244,7 +244,7 @@ function prepareUpload(event) {
                 }
                 $( '#nom_arc_hid' ).attr({'value': $arch});
             } else {
-                displayMensaje('up001', 'Error!', '',responseText, '', 'timer');
+                displayMensaje('up001', 'Error', '',responseText, '', 'timer');
             }
         }
     });
@@ -409,7 +409,7 @@ function radioChange( radio ) {
                 content += "(Nota: El caso se ha considerado de INTERES y para revisión).";
             }  
             $.post(app, {'subject': subject, 'content': content}).done ( function(resul) {
-                if(resul === 'Exito!') {
+                if(resul === 'Exito') {
                     displayMensaje('Men0909',resul,'','Se ha enviado un email de advertencia al médico.','', 'timer')
                 } else {
                     displayMensaje('Men0910',resul,'','Ha habido un error al enviar el email.','', 'timer')                    
@@ -966,9 +966,9 @@ function markClick( mrk ) {
 function listaCasos(categoria, descripcion) {
   
     $.post(APP + 'listado.php', {'seleccion': categoria, 'descripcion': descripcion}).done( function (data) {
-        if (data === 'Error!') {
+        if (data === 'Error') {
             $mensaje = "<p class='w3-center'>Se ha producido un error al cargar los datos.</p>";
-            displayMensaje('xx091', 'Error!', '', $mensaje,'', 'timer');             
+            displayMensaje('xx091', 'Error', '', $mensaje,'', 'timer');             
         } else {
             var options = { 'width':'90%',
                             'height': '90%',
@@ -1017,7 +1017,7 @@ function showCaso( event ) {
         $.post(caso, {'casoID': casoID, 'modo': $modo}).done( function(data) {
             if (data === 'Error') {
                 $mensaje = "<p class='w3-center'>Se ha producido un error al cargar los datos.</p>";
-                displayMensaje('xx093', 'Error!', '', $mensaje, '', 'timer');             
+                displayMensaje('xx093', 'Error', '', $mensaje, '', 'timer');             
             } else {
                 // elimino listado
                 $( '#xx093' ).fadeTo('slow', 0).hide();
@@ -1025,7 +1025,7 @@ function showCaso( event ) {
                 // muestro el nuevo contenido
                 if ($modo === 'borrar') {
                     $mensaje = "<p class='w3-center'>Se ha borrado el caso " + casoID + ".</p>";
-                    displayMensaje('xx093', 'Exito!', '', $mensaje, '', 'timer');     
+                    displayMensaje('xx093', 'Exito', '', $mensaje, '', 'timer');     
                     cargaPag('inicio.php');
                 } else {
                     $( '#contenido' ).html(data);
@@ -1039,7 +1039,7 @@ function showCaso( event ) {
         $.post(quiz, {'casoID': casoID, 'modo': $modo}).done( function (data) {
             if (data === 'Error') {
                 $mensaje = "<p class='w3-center'>Se ha producido un error al cargar los datos.</p>";
-                displayMensaje('xx093', 'Error!', '', $mensaje, '', 'timer');             
+                displayMensaje('xx093', 'Error', '', $mensaje, '', 'timer');             
             } else {
                 // elimino listado
                 $( '#xx093' ).fadeTo('slow', 0).hide();
@@ -1103,8 +1103,8 @@ function infoArchivo (modo) {
     }    
     
     $.post(APP + 'copia.php', {'value': modo}).done (function(data) {         
-        if (data.substr(0, 6) === 'Error!') {
-            displayMensaje('xx098', 'Error!', '', data.substr(6, data.length));
+        if (data.substr(0, 6) === 'Error') {
+            displayMensaje('xx098', 'Error', '', data.substr(6, data.length));
         } else {            
             displayMensaje('xx098', $head, '', data, {'spamClass':'w3-large', 'width':'75%', 'icon': 'fa fa-database'});
         }
