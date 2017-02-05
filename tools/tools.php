@@ -724,14 +724,10 @@ function convierteMinusculas($frase) {
             // la paso a minúsculas y le añado
             // un punto al final
             $cadena = strtolower($cadena) . '.';
-            // NLP de la cadena
-            nlp($cadena);
             break;
         case 1:
             // hay al menos un punto final
             $cadena = strtolower($cadena);
-            // NLP de la cadena
-            nlp($cadena);
             break;
         default:
             // hay dos o más puntos
