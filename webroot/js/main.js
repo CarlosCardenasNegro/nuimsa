@@ -219,8 +219,8 @@ function prepareUpload(event) {
     // los he de enviar en su propio ajax request...
     var data = new FormData();
     data.append('rutina', 'upload');
-    data.append('ini', $('#ini').val());
-    data.append('fec', $('#fec').val());
+    data.append('ini', iniciales);
+    data.append('fec', fecha);
     
     $.each(files, function(key, value) { data.append(key, value); });
     $.ajax ({
@@ -230,12 +230,13 @@ function prepareUpload(event) {
         cache: false,
         processData: false,
         contentType: false,
-        success: function(responseText) {
-            if (responseText.substr(0,5) === 'Exito') {
-                displayMensaje('up001', 'Exito!', '',responseText, '', 'timer');
-                $ini = responseText.indexOf('(') + 1;
-                $end = responseText.indexOf(')');                
-                $archivo = responseText.substring($ini, $end);
+        success: function(response) {
+            response.replace('+','');
+            if (response.substr(0,5) === 'Exito') {
+                displayMensaje('up001', 'Exito', '',response, '', 'timer');
+                $ini = response.indexOf('(') + 1;
+                $end = response.indexOf(')');                
+                $archivo = response.substring($ini, $end);
                 // encadeno los archivos subidos...
                 if (!$( '#nom_arc_hid' ).attr('value')) {
                     $arch = $archivo;
@@ -244,7 +245,7 @@ function prepareUpload(event) {
                 }
                 $( '#nom_arc_hid' ).attr({'value': $arch});
             } else {
-                displayMensaje('up001', 'Error', '',responseText, '', 'timer');
+                displayMensaje('up001', 'Error', '',response, '', 'timer');
             }
         }
     });

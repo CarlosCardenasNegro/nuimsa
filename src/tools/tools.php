@@ -726,7 +726,8 @@ function natural_lp($cadena) {
 
 /**
  * Convierte el texto pasado a minúsculas
- * respetando la mayúscula inicial tras un punto y seguido
+ * respeto la mayúscula inicial tras un punto y seguido
+ * pero no la primera -para poder copiar y pegar en el informe-
  *
  * @param $frase string Frase a convertir.
  * @return $res string Frase convertida. 
@@ -751,11 +752,17 @@ function convierteMinusculas($frase) {
             break;
         default:
             // hay dos o más puntos
+            $contador = 0;
             foreach ($cadenas as $cadena) {
                 $cadena = trim($cadena);
-                $inicial = strtoupper(substr($cadena, 0, 1));
+                if ($contador === 0 ) {
+                    $inicial = strtolower(substr($cadena, 0, 1));
+                } else {
+                    $inicial = strtoupper(substr($cadena, 0, 1));                    
+                }
                 $resto = strtolower(substr($cadena, 1, strlen($cadena) - 1));
                 $res .= $inicial . $resto . '. ';
+                $contador++;
             }
     }
     return trim($res);
