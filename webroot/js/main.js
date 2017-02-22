@@ -115,7 +115,7 @@ function accesoProfesionales() {
 /**
  * Carga las páginas de la app mediante ajax
  *
- * @param str pag Nombre de la página a cargar
+ * @param string pag Nombre de la página a cargar
  * @return text/html
  */
 function cargaPag(pag) {

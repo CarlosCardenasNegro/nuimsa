@@ -1,0 +1,8 @@
+CREATE DATABASE `u525741712_lookup`;
+
+CREATE TABLE lookup (
+    id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    word_original VARCHAR(25) UNIQUE KEY NOT NULL,
+    word_result VARCHAR(255) NOT NULL
+);
+

@@ -56,7 +56,7 @@ $color      = NUIMSA  . 'webroot/css/colores/' . $color;
 $carrousel  = NUIMSA  . 'webroot/css/carrousel.css';
 $main_css   = NUIMSA  . 'webroot/css/main.css';
 $chat_js    = NUIMSA  . 'webroot/js/chat.js';
-$main_js    = NUIMSA . 'webroot/js/main.js';
+$main_js    = NUIMSA  . 'webroot/js/main.js';
 $esculapio_ico  = NUIMSA  . 'webroot/img/icons/atomo_esculapio_ico.svg';
 $esculapio  = NUIMSA  . 'webroot/img/atomo_esculapio2.svg';
 ?>
