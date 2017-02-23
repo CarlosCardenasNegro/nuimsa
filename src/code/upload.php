@@ -110,6 +110,17 @@ if (!$pass_get and !$pass_post and !$pass_files) {
          break;
      
      case 'procesado':
+
+        /**
+         * guardo el formulario de entrevista clínica básica
+         */
+        $ini = testInput($_POST["iniciales"]);
+        $fec = testInput($_POST["fecha"]);
+        $exp = testInput($_POST["exploracion"]);
+        $fec_c = convierteFecha($fec, 'local');
+        $xpath = "[iniciales='$ini' and fecha='$fec_c' and exploracion='$exp']";         
+        $return_f = '';
+        
         /**
          * Antes de guardar el formulario
          * voy a analizar el texto contenido
@@ -134,17 +145,35 @@ if (!$pass_get and !$pass_post and !$pass_files) {
             if (!empty($_POST[$value])) {
                 $_POST[$value] = natural_lp(testInput($_POST[$value]));
             }
-        } 
+        }
         
-        // formulario de entrevista clínica básica
-        // para uso de las rutinas de borrado
-        // y busqueda
-        $ini = testInput($_POST["iniciales"]);
-        $fec = testInput($_POST["fecha"]);
-        // cambio la fecha a "cristiano"
-        $fec = convierteFecha($fec, 'local');
-        $exp = testInput($_POST["exploracion"]);
-        $xpath = "[iniciales='$ini' and fecha='$fec' and exploracion='$exp']";
+        /**
+         * Voy a enviar el archivo si lo hay
+         */
+        if (count($_FILES) > 0 and $_FILES['nombre_archivo']['name'] != '' ) {
+            $fec_tmp = str_replace('-', '', $fec);
+            $uploaddir = ROOT . DS . "scan/$fec_tmp";
+
+            if (!file_exists($uploaddir)) {
+                mkdir($uploaddir);
+            }    
+            $uploaddir .= "/$ini/"; 
+            if (!file_exists($uploaddir)) {
+                    mkdir($uploaddir);
+            }
+
+            foreach($_FILES as $file) {
+                $destino = $uploaddir . strtolower(basename($file['name']));
+                if (move_uploaded_file($file['tmp_name'], $destino)) {
+                    $return_f = "<p class='w3-center'>Se ha subido con éxito el archivo ($destino)</p>";
+                } else {
+                    $return_f = "<p class='w3-center'>No se ha podido subir el archivo ($destino).</p>";
+                    // elimino el dato del POST...
+                    $_POST['nombre_archivo_hidden'] = '';
+                }
+            }            
+        }
+
 
         // (1) Relleno las clases 
         // a partir del $_POST 
@@ -172,7 +201,8 @@ if (!$pass_get and !$pass_post and !$pass_files) {
             // si todo ha ido bien contesto...
             $return = "<p class='w3-center'>Los datos para \"" . $ini . "\" fueron modificados correctamente.</p>";
         }
+
         break;
 }
-echo $return;
+echo $return . $return_f;
         

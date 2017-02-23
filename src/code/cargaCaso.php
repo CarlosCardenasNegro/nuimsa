@@ -107,7 +107,7 @@ if (count($_FILES) > 0 and $_FILES['imagenes']['name'][0] != '' ) {
             $alto = 512;
         }
         Image::open($imagenes['tmp_name'][$i])
-            ->resize($ancho, $alto)
+            ->scaleResize($ancho, $alto)
             ->save($imagenes['tmp_name'][$i]);
 
         // recupero datos para el sql

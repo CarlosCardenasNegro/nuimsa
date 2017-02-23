@@ -190,66 +190,44 @@ function sendData() {
         cache: false,
         processData: false,
         contentType: false,
-        success: function(responseText) {
-            displayMensaje('up002', 'Exito', '',responseText,'','timer');      
+        success: function(response) {
+            response = response.replace('+','');
+            displayMensaje('up002', '', '',response,'','timer');      
             cargaPag('inicio.php');
         }
     });
 }
 /**
  * Prepara el upload de los archivos a cargar en el servidor
+ * Nota: paso el nombre completo desde ahora luego ya lo borraré
+ * si fuera necesario
  * 
  * @param {type} event
  * @returns {undefined}
  */
 function prepareUpload(event) {    
-    var files;
     
-    busy();
+    var files;
     files = event.target.files;
     
-    // Envio las iniciales y fecha para preparar los directorios
-    // de destino
+    // Iniciales y fecha para preparar el directorio
+    // destino
     var iniciales = $('#ini').val();
     var fecha = $('#fec').val();
     fecha =  fecha.replace('-', '');
     fecha =  fecha.replace('-', '');
-    // oculto pantalla a modo de "busy"...
-    busy(true);
-    // los he de enviar en su propio ajax request...
-    var data = new FormData();
-    data.append('rutina', 'upload');
-    data.append('ini', iniciales);
-    data.append('fec', fecha);
-    
-    $.each(files, function(key, value) { data.append(key, value); });
-    $.ajax ({
-        url: APP + 'upload.php',
-        type: 'POST',
-        data: data,
-        cache: false,
-        processData: false,
-        contentType: false,
-        success: function(response) {
-            response.replace('+','');
-            if (response.substr(0,5) === 'Exito') {
-                displayMensaje('up001', 'Exito', '',response, '', 'timer');
-                $ini = response.indexOf('(') + 1;
-                $end = response.indexOf(')');                
-                $archivo = response.substring($ini, $end);
-                // encadeno los archivos subidos...
-                if (!$( '#nom_arc_hid' ).attr('value')) {
-                    $arch = $archivo;
-                } else {
-                    $arch = $( '#nom_arc_hid' ).attr('value') + ';' + $archivo;
-                }
-                $( '#nom_arc_hid' ).attr({'value': $arch});
-            } else {
-                displayMensaje('up001', 'Error', '',response, '', 'timer');
-            }
-        }
-    });
+    uploadDir = ROOT + 'scan/' + fecha + DS + iniciales + DS;
+
+    $archivo =  uploadDir + files[0].name;
+    // encadeno los archivos subidos...
+    if (!$( '#nom_arc_hid' ).attr('value')) {
+        $arch = $archivo;
+    } else {
+        $arch = $( '#nom_arc_hid' ).attr('value') + ';' + $archivo;
+    }
+    $( '#nom_arc_hid' ).attr({'value': $arch});
 }
+
 /**
  * Crea un efecto de "ocupado" insertando un spinner
  */
