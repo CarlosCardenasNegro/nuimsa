@@ -48,17 +48,15 @@ class Solicitud extends Base {
     // methods
     // contructor
     function __construct (...$param) {
-        switch (func_num_args()) {
-            case 0:
-                // valores por defecto
-                $this->_datos['campos']["orden"]['value'] = "";
-                $this->_datos['campos']["nombre_archivo"]['value'] = "";
-                $this->_datos['campos']["nombre_archivo_hidden"]['value'] = "";
-                $this->_datos['campos']["prioridad"]['value'] = "ordinaria";
-                $this->_datos['campos']["estado"]['value'] = "ambulante";
-                $this->_datos['campos']["interes"]['value'] = "";
-                break;
+        // defaults
+        $this->_datos['campos']["orden"]['value'] = "";
+        $this->_datos['campos']["nombre_archivo"]['value'] = "";
+        $this->_datos['campos']["nombre_archivo_hidden"]['value'] = "";
+        $this->_datos['campos']["prioridad"]['value'] = "ordinaria";
+        $this->_datos['campos']["estado"]['value'] = "ambulante";
+        $this->_datos['campos']["interes"]['value'] = "";
         
+        switch (func_num_args()) {
             // se pasaron valores
             case 1:
                 $this->_datos['campos']["orden"]['value'] = $param[0];
